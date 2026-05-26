@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News &amp; Blog — AIC Kanzinwa CYDC</title>
+  <meta name="description" content="Stay up to date with the latest news, success stories, and programme updates from AIC Kanzinwa Child and Youth Development Centre." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .blog-layout { display:grid; grid-template-columns:1fr 320px; gap:48px; align-items:start; }
+    .blog-list { display:flex; flex-direction:column; gap:32px; }
+    .blog-card { display:grid; grid-template-columns:280px 1fr; gap:0; background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:all var(--transition); }
+    .blog-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+    .blog-card-img { height:100%; min-height:200px; object-fit:cover; width:100%; }
+    .blog-card-body { padding:28px; display:flex; flex-direction:column; justify-content:space-between; }
+    .blog-card-meta { display:flex; align-items:center; gap:14px; font-size:0.78rem; color:var(--muted); margin-bottom:10px; flex-wrap:wrap; }
+    .blog-card-meta i { color:var(--gold-500); }
+    .blog-card-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:700; color:var(--dark); margin-bottom:10px; line-height:1.3; }
+    .blog-card-title a { color:inherit; transition:color var(--transition); }
+    .blog-card-title a:hover { color:var(--green-700); }
+    .blog-card-excerpt { font-size:0.88rem; color:var(--muted); line-height:1.65; flex:1; }
+    .blog-card-footer { display:flex; align-items:center; justify-content:space-between; margin-top:16px; padding-top:16px; border-top:1px solid var(--border); }
+    /* Sidebar */
+    .sidebar { display:flex; flex-direction:column; gap:28px; position:sticky; top:100px; }
+    .sidebar-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px; }
+    .sidebar-card h4 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:16px; padding-bottom:12px; border-bottom:2px solid var(--green-100); }
+    .sidebar-post { display:flex; gap:12px; margin-bottom:16px; align-items:flex-start; }
+    .sidebar-post:last-child { margin-bottom:0; }
+    .sidebar-post img { width:64px; height:64px; object-fit:cover; border-radius:var(--radius); flex-shrink:0; }
+    .sidebar-post-title { font-size:0.84rem; font-weight:700; color:var(--dark); line-height:1.3; margin-bottom:4px; }
+    .sidebar-post-title a { color:inherit; }
+    .sidebar-post-title a:hover { color:var(--green-700); }
+    .sidebar-post-date { font-size:0.75rem; color:var(--muted); }
+    .cat-list { display:flex; flex-direction:column; gap:8px; }
+    .cat-item { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); font-size:0.88rem; }
+    .cat-item:last-child { border-bottom:none; }
+    .cat-item a { color:var(--text); font-weight:600; transition:color var(--transition); }
+    .cat-item a:hover { color:var(--green-700); }
+    .cat-count { background:var(--green-100); color:var(--green-700); font-size:0.72rem; font-weight:700; padding:2px 8px; border-radius:100px; }
+    @media(max-width:1024px){.blog-layout{grid-template-columns:1fr;}.sidebar{position:static;}}
+    @media(max-width:640px){.blog-card{grid-template-columns:1fr;}.blog-card-img{height:200px;min-height:unset;}}
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-brand"><div class="nav-brand-icon"><i class="fa-solid fa-hands-holding-child"></i></div><div class="nav-brand-text"><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Kitui, Kenya</div></div></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+      <li><a href="volunteer.html">Volunteer</a></li><li><a href="donate.html">Donate</a></li>
+      <li><a href="gallery.html">Gallery</a></li><li><a href="blog.html" class="active">News</a></li>
+      <li><a href="team.html">Our Team</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="https://kanzinwacdc759.wixsite.com/my-site-1" target="_blank" rel="noopener">The Church</a></li>
+    </ul>
+    <div class="nav-cta"><a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate</a></div>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="volunteer.html">Volunteer</a>
+  <a href="donate.html">Donate</a><a href="gallery.html">Gallery</a><a href="blog.html">News &amp; Blog</a>
+  <a href="team.html">Meet Our Team</a><a href="contact.html">Contact Us</a>
+  <a href="https://kanzinwacdc759.wixsite.com/my-site-1" target="_blank" rel="noopener">The Church <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7rem;"></i></a>
+  <div class="mobile-cta"><a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a><a href="volunteer.html" class="btn btn-outline">Volunteer</a></div>
+</div>
+
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <span class="section-label">Stories &amp; Updates</span>
+    <h1>News &amp; Blog</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>News &amp; Blog</span></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-layout">
+      <!-- MAIN POSTS -->
+      <div class="blog-list">
+
+        <div class="blog-card animate" data-delay="0">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=560&q=80" alt="AIC Maeni Classroom Project" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Community</span><span><i class="fa-regular fa-calendar"></i> November 7, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/building-hope-through-community-action-the-aic-maeni-classroom-project/" target="_blank" rel="noopener">Building Hope Through Community Action: The AIC Maeni Classroom Project</a></h2>
+              <p class="blog-card-excerpt">For several years, children at AIC Maeni Satellite attended their Saturday programming sessions inside the church building — a space that was too small, congested, and frequently disrupted. Through unity, faith, and collective action, the community came together to construct a dedicated classroom. This is a testament to what shared purpose can accomplish.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/building-hope-through-community-action-the-aic-maeni-classroom-project/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-location-dot" style="color:var(--gold-500);"></i> AIC Maeni Satellite</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="60">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=560&q=80" alt="Medical Outreach" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Health</span><span><i class="fa-regular fa-calendar"></i> September 21, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/aic-kanzinwa-child-development-centre-partners-with-medical-missions-africa-for-transformative-medical-outreach/" target="_blank" rel="noopener">AIC Kanzinwa Partners with Medical Missions Africa for Transformative Medical Outreach</a></h2>
+              <p class="blog-card-excerpt">In partnership with Medical Missions Africa (MEMA), AIC Kanzinwa CYDC successfully organised a transformative two-day medical outreach event. Hundreds of community members received free healthcare services, bringing the WHO vision of complete physical, mental, and social well-being closer to reality for families in Kanzinwa.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/aic-kanzinwa-child-development-centre-partners-with-medical-missions-africa-for-transformative-medical-outreach/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-kit-medical" style="color:var(--gold-500);"></i> MEMA Partnership</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=560&q=80" alt="Wayua Karumba Success Story" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag" style="background:var(--gold-100);color:var(--gold-700);">Success Story</span><span><i class="fa-regular fa-calendar"></i> June 27, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/success-story-wayua-karumba/" target="_blank" rel="noopener">Success Story — Wayua Karumba (KE075900135): From Sponsorship to University Graduate</a></h2>
+              <p class="blog-card-excerpt">Wayua Karumba's journey from a sponsored child at AIC Kanzinwa CYDC to proud university alumna is a shining example of what hope, hard work, and unwavering support can accomplish. Her story demonstrates the transformative power of sustained compassionate investment in a child's life.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/success-story-wayua-karumba/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-graduation-cap" style="color:var(--gold-500);"></i> KE075900135</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=560&q=80" alt="Compassion Sunday Event" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Faith &amp; Community</span><span><i class="fa-regular fa-calendar"></i> June 27, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/compassion-sunday-event/" target="_blank" rel="noopener">Compassion Sunday Brings Hope and Unity to AIC Maeni</a></h2>
+              <p class="blog-card-excerpt">On April 27, 2025, AIC Maeni — a proud satellite of AIC Kanzinwa CYDC — hosted a special Compassion Sunday that brought together faith, community, and gratitude in a powerful celebration of partnership with Compassion International. The event drew an impressive gathering of families, leaders, and supporters.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/compassion-sunday-event/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-cross" style="color:var(--gold-500);"></i> AIC Maeni</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=560&q=80" alt="Menstrual Health Initiative" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Health</span><span><i class="fa-regular fa-calendar"></i> June 27, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/menstrual-health-initiative/" target="_blank" rel="noopener">Menstrual Health Initiative: Empowering Girls Through Health Support</a></h2>
+              <p class="blog-card-excerpt">At AIC Kanzinwa CYDC, we recognise that menstrual health is a crucial part of a young woman's life that deserves proper support and care. This initiative ensures that every girl in our programme has access to health education, sanitary supplies, and the dignity she deserves during this natural stage of life.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/menstrual-health-initiative/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-venus" style="color:var(--gold-500);"></i> Girls' Health</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=560&q=80" alt="Daniel Muthoka" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag" style="background:var(--gold-100);color:var(--gold-700);">Success Story</span><span><i class="fa-regular fa-calendar"></i> March 26, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/daniel-muthoka-a-journey-of-hope-and-opportunity/" target="_blank" rel="noopener">Daniel Muthoka (KE07590076): A Journey of Hope and Opportunity</a></h2>
+              <p class="blog-card-excerpt">Coming from a humble background, Daniel Muthoka faced financial challenges that could have prevented him from pursuing his dreams. Through the Compassion sponsorship programme, he studied Plumbing and Pipe Fitting at Kenya Water Institute, Nairobi Campus — and today stands as a skilled professional ready to support his family and community.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/daniel-muthoka-a-journey-of-hope-and-opportunity/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-wrench" style="color:var(--gold-500);"></i> KE07590076</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=560&q=80" alt="Titus Musyoki" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag" style="background:var(--gold-100);color:var(--gold-700);">Success Story</span><span><i class="fa-regular fa-calendar"></i> March 26, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/dont-wait-for-opportunity-create-it/" target="_blank" rel="noopener">Titus Musyoki (KE07590066): Don't Wait for Opportunity — Create It</a></h2>
+              <p class="blog-card-excerpt">Titus Musyoki has achieved outstanding success in his pursuit of technical education. With a scholarship from Compassion International, he joined the Kenya Water Institute (KEWI) and transformed from an unskilled aspirant into a skilled professional in plumbing and pipe fitting — ready to excel and give back to his community.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/dont-wait-for-opportunity-create-it/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-wrench" style="color:var(--gold-500);"></i> KE07590066</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=560&q=80" alt="Public Baraza" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Child Protection</span><span><i class="fa-regular fa-calendar"></i> March 19, 2025</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/aic-kanzinwa-child-development-centre-in-partnership-with-ngao-community-members-and-other-stakeholders-held-public-barasa-on-23-1-2024-to-address-drug-abuse-and-child-neglect/" target="_blank" rel="noopener">AIC Kanzinwa Partners with NGAO to Address Drug Abuse and Child Neglect</a></h2>
+              <p class="blog-card-excerpt">In a collaborative effort, AIC Kanzinwa CYDC partnered with the National Government Administration Office (NGAO) to organise a public baraza in a community identified as a drug abuse hotspot. Approximately 70% of community members were involved in selling illicit brew. The baraza, spearheaded by child neglect champions, sought to protect children and restore family stability.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/aic-kanzinwa-child-development-centre-in-partnership-with-ngao-community-members-and-other-stakeholders-held-public-barasa-on-23-1-2024-to-address-drug-abuse-and-child-neglect/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-shield-halved" style="color:var(--gold-500);"></i> NGAO Partnership</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?w=560&q=80" alt="Ball Making Skills" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Vocational Skills</span><span><i class="fa-regular fa-calendar"></i> November 19, 2024</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/the-project-trained-participants-on-ball-making-skills/" target="_blank" rel="noopener">The Project Trains Participants on Ball Making Skills</a></h2>
+              <p class="blog-card-excerpt">Participants at AIC Kanzinwa CYDC have undergone training on crafting balls from scratch. This initiative equips them with valuable vocational skills while also creating an income stream — the balls will be used within the community and sold, fostering greater self-reliance and economic independence.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/the-project-trained-participants-on-ball-making-skills/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-futbol" style="color:var(--gold-500);"></i> Skills Training</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=560&q=80" alt="AIC Maeni Satellite" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Community</span><span><i class="fa-regular fa-calendar"></i> November 18, 2024</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/a-beacon-of-light-in-the-community-aic-maeni-the-extended-location-satellite-of-aic-kanzinwa-cdc-ke0759/" target="_blank" rel="noopener">A Beacon of Light: AIC Maeni — The Satellite of AIC Kanzinwa CDC (KE0759)</a></h2>
+              <p class="blog-card-excerpt">In March 2024, AIC Kanzinwa embarked on a recruitment drive for AIC Maeni, using Compassion International's criteria to identify the poorest of the poor. From this initiative, 30 programme participants were selected. As James 1:27 says, true religion is to care for orphans and widows — this satellite is that scripture in action.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/a-beacon-of-light-in-the-community-aic-maeni-the-extended-location-satellite-of-aic-kanzinwa-cdc-ke0759/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-location-dot" style="color:var(--gold-500);"></i> AIC Maeni</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card animate" data-delay="80">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=560&q=80" alt="AAKenya MoU" loading="lazy" />
+          <div class="blog-card-body">
+            <div>
+              <div class="blog-card-meta"><span class="card-tag">Partnerships</span><span><i class="fa-regular fa-calendar"></i> November 18, 2024</span><span><i class="fa-regular fa-user"></i> AIC Kanzinwa CDC</span></div>
+              <h2 class="blog-card-title"><a href="https://aickanzinwacdc.org/aic-kanzinwa-cdc-signed-mou-with-aakenya-driving-school-to-empower-youths-and-caregivers/" target="_blank" rel="noopener">AIC Kanzinwa CDC Signs MoU with AAKenya Driving School to Empower Youth and Caregivers</a></h2>
+              <p class="blog-card-excerpt">In response to rising global unemployment and the need for economic self-reliance, AIC Kanzinwa CYDC signed a Memorandum of Understanding with AAKenya Driving School. This partnership provides youth and caregivers with professional driving qualifications — a direct pathway to sustainable employment and income generation.</p>
+            </div>
+            <div class="blog-card-footer">
+              <a href="https://aickanzinwacdc.org/aic-kanzinwa-cdc-signed-mou-with-aakenya-driving-school-to-empower-youths-and-caregivers/" target="_blank" rel="noopener" class="card-link">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
+              <span style="font-size:0.78rem;color:var(--muted);"><i class="fa-solid fa-car" style="color:var(--gold-500);"></i> AAKenya MoU</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /blog-list -->
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-card animate" data-delay="100">
+          <h4><i class="fa-solid fa-newspaper" style="color:var(--green-700);margin-right:8px;"></i>Recent Posts</h4>
+          <div class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=128&q=70" alt="" loading="lazy" />
+            <div><div class="sidebar-post-title"><a href="https://aickanzinwacdc.org/building-hope-through-community-action-the-aic-maeni-classroom-project/" target="_blank" rel="noopener">AIC Maeni Classroom Project</a></div><div class="sidebar-post-date"><i class="fa-regular fa-calendar"></i> Nov 7, 2025</div></div>
+          </div>
+          <div class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=128&q=70" alt="" loading="lazy" />
+            <div><div class="sidebar-post-title"><a href="https://aickanzinwacdc.org/aic-kanzinwa-child-development-centre-partners-with-medical-missions-africa-for-transformative-medical-outreach/" target="_blank" rel="noopener">Medical Outreach with MEMA</a></div><div class="sidebar-post-date"><i class="fa-regular fa-calendar"></i> Sep 21, 2025</div></div>
+          </div>
+          <div class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=128&q=70" alt="" loading="lazy" />
+            <div><div class="sidebar-post-title"><a href="https://aickanzinwacdc.org/success-story-wayua-karumba/" target="_blank" rel="noopener">Success Story — Wayua Karumba</a></div><div class="sidebar-post-date"><i class="fa-regular fa-calendar"></i> Jun 27, 2025</div></div>
+          </div>
+          <div class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=128&q=70" alt="" loading="lazy" />
+            <div><div class="sidebar-post-title"><a href="https://aickanzinwacdc.org/compassion-sunday-event/" target="_blank" rel="noopener">Compassion Sunday at AIC Maeni</a></div><div class="sidebar-post-date"><i class="fa-regular fa-calendar"></i> Jun 27, 2025</div></div>
+          </div>
+          <div class="sidebar-post">
+            <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=128&q=70" alt="" loading="lazy" />
+            <div><div class="sidebar-post-title"><a href="https://aickanzinwacdc.org/daniel-muthoka-a-journey-of-hope-and-opportunity/" target="_blank" rel="noopener">Daniel Muthoka — Hope &amp; Opportunity</a></div><div class="sidebar-post-date"><i class="fa-regular fa-calendar"></i> Mar 26, 2025</div></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card animate" data-delay="150">
+          <h4><i class="fa-solid fa-tags" style="color:var(--green-700);margin-right:8px;"></i>Categories</h4>
+          <div class="cat-list">
+            <div class="cat-item"><a href="#">Success Stories</a><span class="cat-count">3</span></div>
+            <div class="cat-item"><a href="#">Health &amp; Medical</a><span class="cat-count">2</span></div>
+            <div class="cat-item"><a href="#">Community</a><span class="cat-count">2</span></div>
+            <div class="cat-item"><a href="#">Child Protection</a><span class="cat-count">1</span></div>
+            <div class="cat-item"><a href="#">Vocational Skills</a><span class="cat-count">2</span></div>
+            <div class="cat-item"><a href="#">Partnerships</a><span class="cat-count">2</span></div>
+            <div class="cat-item"><a href="#">Faith &amp; Community</a><span class="cat-count">1</span></div>
+          </div>
+        </div>
+
+        <div class="sidebar-card animate" data-delay="200" style="background:var(--green-800);border-color:var(--green-800);">
+          <h4 style="color:var(--white);border-color:rgba(255,255,255,0.15);"><i class="fa-solid fa-heart" style="color:var(--gold-300);margin-right:8px;"></i>Support Our Work</h4>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:16px;">Your contribution keeps programmes like these running and transforms more lives.</p>
+          <a href="donate.html" class="btn btn-gold" style="width:100%;justify-content:center;"><i class="fa-solid fa-heart"></i> Donate Now</a>
+        </div>
+
+        <div class="sidebar-card animate" data-delay="250">
+          <h4><i class="fa-brands fa-facebook-f" style="color:var(--green-700);margin-right:8px;"></i>Follow Us</h4>
+          <p style="font-size:0.88rem;margin-bottom:16px;">Stay connected for real-time updates on our programmes and events.</p>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:0.85rem;"><i class="fa-brands fa-facebook-f"></i> Like on Facebook</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Be the Next Chapter</span>
+    <h2>Help Us Write More Stories Like These</h2>
+    <p>Every donation, every volunteer hour, every prayer contributes to the next success story we will tell.</p>
+    <div class="cta-actions">
+      <a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a>
+      <a href="volunteer.html" class="btn btn-outline-white"><i class="fa-solid fa-hands-helping"></i> Volunteer With Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><div class="icon"><i class="fa-solid fa-hands-holding-child"></i></div><div><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Est. 2009</div></div></div><p>Releasing children and youth from poverty in Jesus' Name through holistic development in Kanzinwa village, Kitui County, Kenya — Compassion International Partner since 2008.</p><div class="footer-socials"><a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a><a href="mailto:ke759aickanzinwacdc@gmail.com" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a><a href="https://www.youtube.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a><a href="https://wa.me/" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li><li><a href="volunteer.html"><i class="fa-solid fa-chevron-right"></i> Volunteer</a></li><li><a href="donate.html"><i class="fa-solid fa-chevron-right"></i> Donate</a></li><li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li><li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> News &amp; Blog</a></li><li><a href="team.html"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li><li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li><li><a href="https://kanzinwacdc759.wixsite.com/my-site-1" target="_blank" rel="noopener"><i class="fa-solid fa-chevron-right"></i> The Church</a></li></ul></div>
+      <div class="footer-col"><h5>Programmes</h5><ul class="footer-links"><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Survival Programme</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Home-Based Care</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Sponsorship</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Medical Outreach</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Vocational Training</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Child Protection</a></li></ul></div>
+      <div class="footer-col"><h5>Contact Us</h5><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Kanzinwa Village, Mbarani Sub-location, Mumoni Sub-county, Kitui County, Kenya</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:ke759aickanzinwacdc@gmail.com" style="color:rgba(255,255,255,0.6);">ke759aickanzinwacdc@gmail.com</a></div><div class="footer-contact-item"><i class="fa-solid fa-handshake"></i><span>Compassion International Partner — KE0759</span></div><a href="donate.html" class="btn btn-gold mt-3" style="font-size:0.85rem;padding:11px 20px;"><i class="fa-solid fa-heart"></i> Donate Now</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 AIC Kanzinwa Child &amp; Youth Development Centre. All rights reserved.</span><span>Compassion International Partner — <a href="https://compassion.com" target="_blank" rel="noopener">KE0759</a></span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

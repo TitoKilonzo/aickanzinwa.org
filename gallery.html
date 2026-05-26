@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — AIC Kanzinwa CYDC</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+    .filter-btn{padding:9px 20px;border:2px solid var(--border);border-radius:100px;font-size:0.84rem;font-weight:700;cursor:pointer;transition:all var(--transition);background:var(--white);color:var(--text);}
+    .filter-btn.active,.filter-btn:hover{background:var(--green-800);border-color:var(--green-800);color:var(--white);}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;}
+    .gallery-item img{width:100%;height:260px;object-fit:cover;transition:transform 0.5s ease;display:block;}
+    .gallery-item:hover img{transform:scale(1.06);}
+    .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,43,30,0.85) 0%,transparent 55%);opacity:0;transition:opacity var(--transition);display:flex;align-items:flex-end;padding:20px;}
+    .gallery-item:hover .gallery-overlay{opacity:1;}
+    .gallery-caption{color:var(--white);font-size:0.85rem;font-weight:600;}
+    .gallery-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--white);font-size:1.6rem;opacity:0;transition:opacity var(--transition);}
+    .gallery-item:hover .gallery-icon{opacity:1;}
+    @media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);}.gallery-item img{height:200px;}}
+    @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-brand"><div class="nav-brand-icon"><i class="fa-solid fa-hands-holding-child"></i></div><div class="nav-brand-text"><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Kitui, Kenya</div></div></a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="volunteer.html">Volunteer</a></li><li><a href="gallery.html" class="active">Gallery</a></li><li><a href="blog.html">News</a></li><li><a href="team.html">Our Team</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <div class="nav-cta"><a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate</a></div>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div></div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="volunteer.html">Volunteer</a><a href="gallery.html">Gallery</a><a href="blog.html">News &amp; Blog</a><a href="team.html">Meet Our Team</a><a href="contact.html">Contact Us</a>
+  <div class="mobile-cta"><a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a><a href="volunteer.html" class="btn btn-outline">Volunteer</a></div>
+</div>
+
+<div class="page-hero">
+  <div class="container page-hero-content">
+    <span class="section-label">Our Moments</span>
+    <h1>Photo Gallery</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Gallery</span></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-6 animate">
+      <span class="section-label">Our Stories in Pictures</span>
+      <h2 class="section-title">Moments of Impact</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-lead" style="margin:0 auto;">Glimpses of the programmes, events, and milestones that define our work across Kanzinwa village and AIC Maeni Satellite.</p>
+    </div>
+
+    <div class="filter-bar animate">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Education</button>
+      <button class="filter-btn">Health</button>
+      <button class="filter-btn">Community</button>
+      <button class="filter-btn">Sports</button>
+      <button class="filter-btn">Environment</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80" data-caption="Children in Education Programme">
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=600&q=80" alt="Children in Education Programme" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Children in Education Programme</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=1200&q=80" data-caption="AIC Maeni Classroom Project">
+        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600&q=80" alt="AIC Maeni Classroom Project" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">AIC Maeni Classroom Construction</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&q=80" data-caption="Community Gathering">
+        <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=600&q=80" alt="Community Gathering" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Community Gathering &amp; Baraza</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80" data-caption="Medical Outreach Clinic">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Medical Outreach Clinic" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Medical Outreach with MEMA</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80" data-caption="Children at the Centre">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Children at the Centre" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Children at the Development Centre</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?w=1200&q=80" data-caption="Youth Learning Session">
+        <img src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?w=600&q=80" alt="Youth Learning Session" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Youth Learning Session</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80" data-caption="Graduation Celebration">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="Graduation Celebration" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Graduation &amp; Achievements</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&q=80" data-caption="Volunteer Activities">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80" alt="Volunteer Activities" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Volunteer Team in Action</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80" data-caption="Tree Planting Initiative">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80" alt="Tree Planting Initiative" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Environmental Tree Planting</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?w=1200&q=80" data-caption="Sports Day Activities">
+        <img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?w=600&q=80" alt="Sports Day" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Sports Day &amp; Recreation</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&q=80" data-caption="Child Protection Training">
+        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600&q=80" alt="Child Protection Training" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Child Protection Training</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80" data-caption="Reading Programme">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Reading Programme" loading="lazy" />
+        <div class="gallery-overlay"><div class="gallery-caption">Literacy &amp; Reading Programme</div></div>
+        <div class="gallery-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Be Part of Our Story</span>
+    <h2>Help Create More Moments Like These</h2>
+    <p>Your support — through donation or volunteering — enables us to create lasting memories and outcomes for every child we serve.</p>
+    <div class="cta-actions">
+      <a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a>
+      <a href="volunteer.html" class="btn btn-outline-white"><i class="fa-solid fa-hands-helping"></i> Volunteer</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo"><div class="icon"><i class="fa-solid fa-hands-holding-child"></i></div><div><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Est. 2009</div></div></div><p>Releasing children and youth from poverty in Jesus' Name through holistic development in Kanzinwa village, Kitui County, Kenya.</p><div class="footer-socials"><a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a><a href="mailto:ke759aickanzinwacdc@gmail.com" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a><a href="https://www.youtube.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a><a href="https://wa.me/" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li><li><a href="volunteer.html"><i class="fa-solid fa-chevron-right"></i> Volunteer</a></li><li><a href="donate.html"><i class="fa-solid fa-chevron-right"></i> Donate</a></li><li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li><li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> News &amp; Blog</a></li><li><a href="team.html"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li><li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Programmes</h5><ul class="footer-links"><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Survival Programme</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Home-Based Care</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Sponsorship</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Medical Outreach</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Vocational Training</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Child Protection</a></li></ul></div>
+      <div class="footer-col"><h5>Contact Us</h5><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Kanzinwa Village, Mumoni Sub-county, Kitui County, Kenya</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:ke759aickanzinwacdc@gmail.com" style="color:rgba(255,255,255,0.6);">ke759aickanzinwacdc@gmail.com</a></div><div class="footer-contact-item"><i class="fa-solid fa-handshake"></i><span>Compassion International Partner — KE0759</span></div><a href="donate.html" class="btn btn-gold mt-3" style="font-size:0.85rem;padding:11px 20px;"><i class="fa-solid fa-heart"></i> Donate Now</a></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 AIC Kanzinwa Child &amp; Youth Development Centre. All rights reserved.</span><span>Compassion International Partner — <a href="https://compassion.com" target="_blank" rel="noopener">KE0759</a></span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
