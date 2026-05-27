@@ -3,64 +3,50 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meet Our Team — AIC Kanzinwa CYDC</title>
-  <meta name="description" content="Meet the dedicated staff and leadership of AIC Kanzinwa Child and Youth Development Centre — the people behind the mission." />
+  <meta name="description" content="Meet the dedicated staff and leadership of AIC Kanzinwa CYDC — the people behind the mission of releasing children from poverty in Jesus' Name." />
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-    .team-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; transition:all var(--transition); }
-    .team-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
-    .team-img-wrap { height:300px; overflow:hidden; background:var(--green-100); position:relative; }
-    .team-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform 0.5s ease; }
-    .team-card:hover .team-img-wrap img { transform:scale(1.04); }
-    .team-role-badge { position:absolute; bottom:16px; left:16px; background:var(--green-800); color:var(--white); font-size:0.72rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; padding:5px 12px; border-radius:100px; }
-    .team-card-body { padding:24px; }
-    .team-name { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; color:var(--dark); margin-bottom:4px; }
-    .team-role { font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold-500); margin-bottom:14px; }
-    .team-bio { font-size:0.88rem; color:var(--muted); line-height:1.7; }
-    .team-quals { margin-top:14px; padding-top:14px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:6px; }
-    .team-qual { display:flex; align-items:flex-start; gap:8px; font-size:0.82rem; color:var(--muted); }
-    .team-qual i { color:var(--green-600); font-size:0.7rem; margin-top:4px; flex-shrink:0; }
-    .patron-card { grid-column:1/-1; display:grid; grid-template-columns:320px 1fr; gap:0; background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); transition:all var(--transition); }
-    .patron-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); }
-    .patron-img { height:100%; min-height:320px; overflow:hidden; background:var(--green-100); position:relative; }
-    .patron-img img { width:100%; height:100%; object-fit:cover; object-position:top center; }
-    .patron-body { padding:40px; display:flex; flex-direction:column; justify-content:center; border-left:4px solid var(--green-800); }
-    .patron-badge { display:inline-block; background:var(--green-100); color:var(--green-800); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 14px; border-radius:100px; margin-bottom:16px; }
-    @media(max-width:1024px){ .team-grid{grid-template-columns:repeat(2,1fr);} .patron-card{grid-column:auto;grid-template-columns:1fr;} .patron-img{min-height:280px;} }
-    @media(max-width:640px){ .team-grid{grid-template-columns:1fr;} }
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--transition);}
+    .team-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+    .team-img-wrap{height:290px;overflow:hidden;background:var(--green-100);position:relative;}
+    .team-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform 0.5s ease;}
+    .team-card:hover .team-img-wrap img{transform:scale(1.04);}
+    .team-role-badge{position:absolute;bottom:14px;left:14px;background:var(--green-800);color:var(--white);font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;}
+    .team-card-body{padding:22px 24px;}
+    .team-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:3px;}
+    .team-role{font-size:0.77rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-500);margin-bottom:12px;}
+    .team-bio{font-size:0.86rem;color:var(--muted);line-height:1.68;}
+    .team-quals{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px;}
+    .team-qual{display:flex;align-items:flex-start;gap:8px;font-size:0.8rem;color:var(--muted);}
+    .team-qual i{color:var(--green-600);font-size:0.68rem;margin-top:4px;flex-shrink:0;}
+    /* Patron featured card */
+    .patron-wrap{grid-column:1/-1;display:grid;grid-template-columns:300px 1fr;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--white);box-shadow:var(--shadow-sm);transition:all var(--transition);}
+    .patron-wrap:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+    .patron-img{height:100%;min-height:300px;overflow:hidden;background:var(--green-100);}
+    .patron-img img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+    .patron-body{padding:40px;display:flex;flex-direction:column;justify-content:center;border-left:4px solid var(--green-800);}
+    .patron-tag{display:inline-block;background:var(--green-100);color:var(--green-800);font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px;}
+    @media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr);}.patron-wrap{grid-column:auto;grid-template-columns:1fr;}.patron-img{min-height:260px;}}
+    @media(max-width:620px){.team-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
-<nav class="navbar">
-  <div class="container"><div class="nav-inner">
-    <a href="index.html" class="nav-brand"><div class="nav-brand-icon"><i class="fa-solid fa-hands-holding-child"></i></div><div class="nav-brand-text"><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Kitui, Kenya</div></div></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
-      <li><a href="volunteer.html">Volunteer</a></li><li><a href="donate.html">Donate</a></li>
-      <li><a href="gallery.html">Gallery</a></li><li><a href="blog.html">News</a></li>
-      <li><a href="team.html" class="active">Our Team</a></li><li><a href="contact.html">Contact</a></li>
-      <li><a href="https://kanzinwacdc759.wixsite.com/my-site-1" target="_blank" rel="noopener">The Church</a></li>
-    </ul>
-    <div class="nav-cta"><a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate</a></div>
-    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-  </div></div>
-</nav>
-<div class="mobile-menu">
-  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="volunteer.html">Volunteer</a>
-  <a href="donate.html">Donate</a><a href="gallery.html">Gallery</a><a href="blog.html">News &amp; Blog</a>
-  <a href="team.html">Meet Our Team</a><a href="contact.html">Contact Us</a>
-  <a href="https://kanzinwacdc759.wixsite.com/my-site-1" target="_blank" rel="noopener">The Church <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.7rem;"></i></a>
-  <div class="mobile-cta"><a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a><a href="volunteer.html" class="btn btn-outline">Volunteer</a></div>
-</div>
 
-<div class="page-hero">
-  <div class="container page-hero-content">
-    <span class="section-label">The People Behind the Mission</span>
-    <h1>Meet Our Team</h1>
-    <div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Meet Our Team</span></div>
-  </div>
-</div>
+<nav class="navbar"><div class="container"><div class="nav-inner">
+  <a href="index.html" class="nav-brand"><img src="images/logo.jpg" alt="AIC Kanzinwa CYDC Logo" class="nav-logo-img" /><div class="nav-brand-text"><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Kitui, Kenya</div></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+    <li><a href="gallery.html">Gallery</a></li><li><a href="blog.html">Blog</a></li>
+    <li><a href="team.html" class="active">Meet Our Team</a></li><li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div></div></nav>
+<div class="mobile-menu"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="team.html">Meet Our Team</a><a href="contact.html">Contact Us</a><div class="mobile-cta" style="margin-top:16px;"><a href="contact.html" class="btn btn-primary" style="flex:1;justify-content:center;"><i class="fa-solid fa-envelope"></i> Get in Touch</a></div></div>
+
+<div class="page-hero"><div class="container page-hero-content"><span class="section-label">The People Behind the Mission</span><h1>Meet Our Team</h1><div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Meet Our Team</span></div></div></div>
 
 <section class="section">
   <div class="container">
@@ -73,38 +59,33 @@
 
     <div class="team-grid">
 
-      <!-- PATRON — full width featured card -->
-      <div class="patron-card animate" data-delay="0">
-        <div class="patron-img">
-          <img src="https://aickanzinwacdc.org/wp-content/uploads/elementor/thumbs/DSC_1805-scaled-pd3gjml4jp2sk5hhy3xxkjatlemu54whzg4hy9yx1k.jpg" alt="Pastor Peter Musyoka — Project Patron" />
-        </div>
+      <!-- PATRON — full-width featured -->
+      <div class="patron-wrap animate">
+        <div class="patron-img"><img src="https://aickanzinwacdc.org/wp-content/uploads/elementor/thumbs/DSC_1805-scaled-pd3gjml4jp2sk5hhy3xxkjatlemu54whzg4hy9yx1k.jpg" alt="Pastor Peter Musyoka — Project Patron" /></div>
         <div class="patron-body">
-          <span class="patron-badge"><i class="fa-solid fa-cross"></i> Project Patron &amp; Lead Pastor</span>
+          <span class="patron-tag"><i class="fa-solid fa-cross"></i> Project Patron &amp; Lead Pastor</span>
           <h2 class="team-name" style="font-size:2rem;">Pastor Peter Musyoka</h2>
-          <div class="team-role">Project Patron — AIC Kanzinwa Church</div>
-          <p class="team-bio">Pastor Peter Musyoka is the Lead Pastor of Africa Inland Church Kanzinwa and the Patron of the Compassion International-supported AIC Kanzinwa Child Development Centre. Under his spiritual leadership, the project has grown from 200 to 371 registered beneficiaries and expanded to include the AIC Maeni Satellite. He provides the pastoral oversight, community trust, and theological grounding that anchors every programme.</p>
+          <div class="team-role">Patron — Africa Inland Church Kanzinwa</div>
+          <p class="team-bio" style="font-size:0.92rem;margin-bottom:0;">Pastor Peter Musyoka is the Lead Pastor of AIC Kanzinwa and the Patron of the Compassion International-supported KE0759 project. Under his spiritual leadership the CDC has grown from 200 to 371 beneficiaries, launched the AIC Maeni Satellite, and established the AIC Kanzinwa Academy — now ranked top 10 in Kitui County. He chairs the Overall Management Committee and provides the pastoral oversight, community trust, and theological grounding that anchors every programme.</p>
           <div class="team-quals">
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Diploma in Theology — Scott Christian University</span></div>
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Lead Pastor — Africa Inland Church Kanzinwa</span></div>
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Compassion International Project Patron since 2009</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Lead Pastor — Africa Inland Church Kanzinwa since establishment</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Patron &amp; Overall Management Committee Chair — KE0759</span></div>
           </div>
         </div>
       </div>
 
       <!-- PROJECT DIRECTOR -->
       <div class="team-card animate" data-delay="0">
-        <div class="team-img-wrap">
-          <img src="https://aickanzinwacdc.org/wp-content/uploads/2021/02/Joshua-Mutisya.png" alt="Joshua Mutisya — Project Director" />
-          <div class="team-role-badge">Project Director</div>
-        </div>
+        <div class="team-img-wrap"><img src="https://aickanzinwacdc.org/wp-content/uploads/2021/02/Joshua-Mutisya.png" alt="Joshua Mutisya — Project Director" /><div class="team-role-badge">Project Director</div></div>
         <div class="team-card-body">
           <h3 class="team-name">Joshua K. Mutisya</h3>
           <div class="team-role">Project Director</div>
-          <p class="team-bio">Joshua leads the day-to-day operations of AIC Kanzinwa CYDC. He previously served as Project Accountant from March 2010 to December 2022, bringing deep institutional knowledge and a growing passion for technology-driven development.</p>
+          <p class="team-bio">Joshua leads the day-to-day operations of AIC Kanzinwa CYDC and serves as Secretary to the Overall Management Committee. He previously served as Project Accountant from March 2010 to December 2022, bringing deep institutional knowledge and a passion for community-driven development.</p>
           <div class="team-quals">
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Master of Development Studies — Mount Kenya University</span></div>
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Bachelor of Development Studies — Mount Kenya University</span></div>
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Diploma, Project Planning &amp; Management — Rural Aid Training Institute</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Diploma in Project Planning &amp; Management — Rural Aid Training Institute</span></div>
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>CPA — North Eastern National Polytechnic</span></div>
           </div>
         </div>
@@ -112,52 +93,43 @@
 
       <!-- HEALTH WORKER -->
       <div class="team-card animate" data-delay="80">
-        <div class="team-img-wrap">
-          <img src="https://aickanzinwacdc.org/wp-content/uploads/2026/05/Fidelis.jpeg" alt="Fidelis Kaluki — Health and Social Worker" />
-          <div class="team-role-badge">Health &amp; Social Worker</div>
-        </div>
+        <div class="team-img-wrap"><img src="https://aickanzinwacdc.org/wp-content/uploads/2026/05/Fidelis.jpeg" alt="Fidelis Kaluki — Health and Social Worker" /><div class="team-role-badge">Health &amp; Social Worker</div></div>
         <div class="team-card-body">
           <h3 class="team-name">Fidelis Kaluki</h3>
           <div class="team-role">Project Health Worker &amp; Social Worker</div>
           <p class="team-bio">A Registered Nurse licensed by the Nursing Council of Kenya, Fidelis delivers compassionate, child-centred care across the programme. She leads health education, medical outreach coordination, and social-emotional support — promoting the holistic well-being of every participant.</p>
           <div class="team-quals">
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Diploma in Community Health Nursing — Kenya Medical Training College (KMTC)</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Diploma in Community Health Nursing — KMTC</span></div>
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Registered Nurse — Nursing Council of Kenya</span></div>
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Expertise in patient care, health education &amp; community outreach</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Community health, outreach &amp; psychosocial support</span></div>
           </div>
         </div>
       </div>
 
       <!-- ACCOUNTANT -->
       <div class="team-card animate" data-delay="160">
-        <div class="team-img-wrap">
-          <img src="https://aickanzinwacdc.org/wp-content/uploads/2024/10/daudi.jpg" alt="Daudi Maanda Ngunga — Project Accountant" />
-          <div class="team-role-badge">Project Accountant</div>
-        </div>
+        <div class="team-img-wrap"><img src="https://aickanzinwacdc.org/wp-content/uploads/2024/10/daudi.jpg" alt="Daudi Maanda Ngunga — Accountant" /><div class="team-role-badge">Project Accountant</div></div>
         <div class="team-card-body">
           <h3 class="team-name">Daudi Maanda Ngunga</h3>
           <div class="team-role">Project Accountant</div>
-          <p class="team-bio">Daudi manages the project's financial records with precision and integrity, ensuring full compliance with accounting standards and providing financial insights that support sound decision-making across all programme areas.</p>
+          <p class="team-bio">Daudi manages the project's financial records with precision and integrity, ensuring full compliance with accounting standards. His work supports the audit excellence that has seen the project achieve a 90% Compassion International audit rating.</p>
           <div class="team-quals">
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Bachelor's Degree in Accounting</span></div>
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Certified Public Accountant (CPA)</span></div>
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Expert in financial management, auditing &amp; tax regulations</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Financial management, auditing &amp; compliance</span></div>
           </div>
         </div>
       </div>
 
       <!-- CHAIRPERSON -->
       <div class="team-card animate" data-delay="0">
-        <div class="team-img-wrap">
-          <img src="https://aickanzinwacdc.org/wp-content/uploads/2021/05/chairlady-1024x684.jpg" alt="Agnes Kamene Kivara — Project Chairperson" />
-          <div class="team-role-badge">Project Chairperson</div>
-        </div>
+        <div class="team-img-wrap"><img src="https://aickanzinwacdc.org/wp-content/uploads/2021/05/chairlady-1024x684.jpg" alt="Agnes Kamene Kivara — Chairperson" /><div class="team-role-badge">Project Chairperson</div></div>
         <div class="team-card-body">
           <h3 class="team-name">Agnes Kamene Kivara</h3>
-          <div class="team-role">Project Chairperson</div>
-          <p class="team-bio">Agnes chairs the project committee, providing governance, strategic oversight, and community accountability. She ensures that programme activities align with the mission of holistic child development and Compassion International's standards of excellence.</p>
+          <div class="team-role">Project Chairperson — ASM Committee</div>
+          <p class="team-bio">Agnes chairs the ASM Project Committee, providing governance, strategic oversight, and community accountability. She ensures programme activities align with the mission of holistic child development and Compassion International's standards of excellence.</p>
           <div class="team-quals">
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Project Committee Chairperson</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>ASM Committee Chairperson — KE0759</span></div>
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Community liaison and governance oversight</span></div>
           </div>
         </div>
@@ -165,16 +137,13 @@
 
       <!-- TREASURER -->
       <div class="team-card animate" data-delay="80">
-        <div class="team-img-wrap">
-          <img src="https://aickanzinwacdc.org/wp-content/uploads/2021/05/TreashMa-grace-1024x731.png" alt="Magdaline Kanini — Project Treasurer" />
-          <div class="team-role-badge">Project Treasurer</div>
-        </div>
+        <div class="team-img-wrap"><img src="https://aickanzinwacdc.org/wp-content/uploads/2021/05/TreashMa-grace-1024x731.png" alt="Magdaline Kanini — Treasurer" /><div class="team-role-badge">Project Treasurer</div></div>
         <div class="team-card-body">
           <h3 class="team-name">Magdaline Kanini</h3>
           <div class="team-role">Project Treasurer</div>
-          <p class="team-bio">Magdaline serves as Project Treasurer, overseeing the careful stewardship of all project funds. Her role ensures financial transparency, proper recording, and accountability to donors, Compassion International, and the community we serve.</p>
+          <p class="team-bio">Magdaline serves as Project Treasurer, overseeing the careful stewardship of all project funds. Her role ensures financial transparency, proper recording of all transactions, and accountability to donors, Compassion International, and the community.</p>
           <div class="team-quals">
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Project Committee Treasurer</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Project Committee Treasurer — KE0759</span></div>
             <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Financial stewardship &amp; donor accountability</span></div>
           </div>
         </div>
@@ -182,61 +151,46 @@
 
       <!-- SECRETARY -->
       <div class="team-card animate" data-delay="160">
-        <div class="team-img-wrap">
-          <img src="https://aickanzinwacdc.org/wp-content/uploads/2021/05/The-treasurer-1024x731.png" alt="Agnes Wayua — Project Secretary" />
-          <div class="team-role-badge">Project Secretary</div>
-        </div>
+        <div class="team-img-wrap"><img src="https://aickanzinwacdc.org/wp-content/uploads/2021/05/The-treasurer-1024x731.png" alt="Agnes Wayua — Secretary" /><div class="team-role-badge">Project Secretary</div></div>
         <div class="team-card-body">
           <h3 class="team-name">Agnes Wayua</h3>
           <div class="team-role">Project Secretary</div>
-          <p class="team-bio">Agnes Wayua serves as Project Secretary, maintaining accurate records, coordinating communications, and ensuring seamless administration across all programme activities. Her diligence underpins the operational efficiency of the entire project.</p>
+          <p class="team-bio">Agnes Wayua maintains accurate records, coordinates communications, and ensures seamless administration across all programme activities. Her diligence is central to the operational efficiency of the project.</p>
           <div class="team-quals">
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Project Committee Secretary</span></div>
-            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Programme administration &amp; record keeping</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Project Committee Secretary — KE0759</span></div>
+            <div class="team-qual"><i class="fa-solid fa-circle-check"></i><span>Programme administration &amp; records management</span></div>
           </div>
         </div>
       </div>
 
-    </div><!-- /team-grid -->
+    </div>
   </div>
 </section>
 
+<!-- JOIN THE TEAM -->
 <section class="section-sm bg-light">
   <div class="container text-center animate">
-    <span class="section-label">Join the Mission</span>
-    <h2 class="section-title">Work With a Purpose-Driven Team</h2>
+    <span class="section-label">Work With Purpose</span>
+    <h2 class="section-title">Join a Purpose-Driven Team</h2>
     <div class="divider divider-center"></div>
-    <p class="section-lead" style="margin:0 auto 32px;">Interested in contributing your skills to our growing team? We welcome professionals, volunteers, and partners who share our passion for releasing children from poverty.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="volunteer.html" class="btn btn-primary"><i class="fa-solid fa-hands-helping"></i> Volunteer With Us</a>
-      <a href="contact.html" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
-    </div>
+    <p class="section-lead" style="margin:0 auto 32px;">Interested in contributing your skills to our growing team? We welcome professionals, volunteers, and partners who share our passion for releasing children from poverty in Jesus' Name.</p>
+    <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
   </div>
 </section>
 
-<section class="cta-section">
-  <div class="container">
-    <span class="section-label">Support the Team's Work</span>
-    <h2>Fund the Mission That Drives These Lives</h2>
-    <p>Every donation ensures our team can continue serving 371+ children and youth with excellence and compassion.</p>
-    <div class="cta-actions">
-      <a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a>
-      <a href="about.html" class="btn btn-outline-white"><i class="fa-solid fa-circle-info"></i> Our Mission</a>
-    </div>
-  </div>
-</section>
+<section class="cta-section"><div class="container"><span class="section-label">Support the Team's Work</span><h2>Fund the Mission That Drives These Lives</h2><p>Every contribution ensures our team can continue serving 371+ children and youth with excellence and compassion across Kitui County.</p><div class="cta-actions"><a href="contact.html" class="btn btn-gold"><i class="fa-solid fa-envelope"></i> Contact Us</a><a href="about.html" class="btn btn-outline-white"><i class="fa-solid fa-circle-info"></i> Our Mission</a></div></div></section>
 
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand"><div class="footer-logo"><div class="icon"><i class="fa-solid fa-hands-holding-child"></i></div><div><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Est. 2009</div></div></div><p>Releasing children and youth from poverty in Jesus' Name through holistic development in Kanzinwa village, Kitui County, Kenya — Compassion International Partner since 2008.</p><div class="footer-socials"><a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a><a href="mailto:ke759aickanzinwacdc@gmail.com" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a><a href="https://www.youtube.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a><a href="https://wa.me/" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a></div></div>
-      <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li><li><a href="volunteer.html"><i class="fa-solid fa-chevron-right"></i> Volunteer</a></li><li><a href="donate.html"><i class="fa-solid fa-chevron-right"></i> Donate</a></li><li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li><li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> News &amp; Blog</a></li><li><a href="team.html"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li><li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li><li><a href="https://kanzinwacdc759.wixsite.com/my-site-1" target="_blank" rel="noopener"><i class="fa-solid fa-chevron-right"></i> The Church</a></li></ul></div>
-      <div class="footer-col"><h5>Programmes</h5><ul class="footer-links"><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Survival Programme</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Home-Based Care</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Sponsorship</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Medical Outreach</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Vocational Training</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Child Protection</a></li></ul></div>
-      <div class="footer-col"><h5>Contact Us</h5><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Kanzinwa Village, Mbarani Sub-location, Mumoni Sub-county, Kitui County, Kenya</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:ke759aickanzinwacdc@gmail.com" style="color:rgba(255,255,255,0.6);">ke759aickanzinwacdc@gmail.com</a></div><div class="footer-contact-item"><i class="fa-solid fa-handshake"></i><span>Compassion International Partner — KE0759</span></div><a href="donate.html" class="btn btn-gold mt-3" style="font-size:0.85rem;padding:11px 20px;"><i class="fa-solid fa-heart"></i> Donate Now</a></div>
-    </div>
-    <div class="footer-bottom"><span>&copy; 2026 AIC Kanzinwa Child &amp; Youth Development Centre. All rights reserved.</span><span>Compassion International Partner — <a href="https://compassion.com" target="_blank" rel="noopener">KE0759</a></span></div>
+<footer><div class="container">
+  <div class="footer-top">
+    <div class="footer-brand"><div class="footer-logo"><img src="images/logo.jpg" alt="AIC Kanzinwa CYDC" class="footer-logo-img" /><div><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Est. 2009</div></div></div><p>Releasing children and youth from poverty in Jesus' Name — Compassion International Partner since 2008.</p><div class="footer-socials"><a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a><a href="mailto:info@aickanzinwacdc.org" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a><a href="https://wa.me/254736363349" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a><a href="https://www.youtube.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a></div></div>
+    <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links"><li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li><li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li><li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li><li><a href="team.html"><i class="fa-solid fa-chevron-right"></i> Meet Our Team</a></li><li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li></ul></div>
+    <div class="footer-col"><h5>Programmes</h5><ul class="footer-links"><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Survival Programme</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Home-Based Care</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Sponsorship</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> AIC Kanzinwa Academy</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Vocational Training</a></li><li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Child Protection</a></li></ul></div>
+    <div class="footer-col"><h5>Contact Us</h5><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Kanzinwa Village, Mumoni Sub-county, Kitui County, Kenya</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+254736363349" style="color:rgba(255,255,255,0.6);">+254 736 363 349</a></div><div class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/254736363349" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">WhatsApp Us</a></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@aickanzinwacdc.org" style="color:rgba(255,255,255,0.6);">info@aickanzinwacdc.org</a></div></div>
   </div>
-</footer>
+  <div class="footer-bottom"><span>&copy; 2026 AIC Kanzinwa Child &amp; Youth Development Centre. All rights reserved.</span><span>Compassion International Partner — <a href="https://compassion.com" target="_blank" rel="noopener">KE0759</a></span></div>
+</div></footer>
+
+<div class="wa-float"><div class="wa-popup" id="wa-popup"><button class="wa-close" id="wa-close-popup"><i class="fa-solid fa-xmark"></i></button><div class="wa-popup-header"><img src="images/logo.jpg" alt="AIC Kanzinwa" class="wa-popup-avatar" /><div><div class="wa-popup-name">AIC Kanzinwa CYDC</div><div class="wa-popup-status"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Typically replies within a day</div></div></div><p>Have a question? Reach out on WhatsApp or give us a call.</p><div class="wa-popup-actions"><a href="https://wa.me/254736363349?text=Hello%20AIC%20Kanzinwa%20CYDC!" target="_blank" rel="noopener" class="wa-action-btn chat"><i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i> Chat on WhatsApp</a><a href="tel:+254736363349" class="wa-action-btn call"><i class="fa-solid fa-phone"></i> Call +254 736 363 349</a></div></div><button class="wa-main-btn" id="wa-toggle" aria-label="WhatsApp"><div class="wa-pulse"></div><i class="fa-brands fa-whatsapp" style="position:relative;z-index:1;font-size:1.7rem;"></i></button></div>
 <script src="js/main.js"></script>
 </body>
 </html>

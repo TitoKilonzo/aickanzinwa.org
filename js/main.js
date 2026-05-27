@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---- NAVBAR SCROLL EFFECT ---- */
+  /* ---- NAVBAR SCROLL ---- */
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener('scroll', () => {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ---- MOBILE MENU ---- */
-  const hamburger = document.querySelector('.hamburger');
+  const hamburger  = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
@@ -43,11 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const animatedEls = document.querySelectorAll('.animate');
   if (animatedEls.length) {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, entry.target.dataset.delay || 0);
+          setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
           observer.unobserve(entry.target);
         }
       });
@@ -72,27 +70,21 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }, 16);
   }
-  const counters = document.querySelectorAll('.counter');
-  if (counters.length) {
+  document.querySelectorAll('.counter').forEach(c => {
     const co = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          co.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { animateCounter(entry.target); co.unobserve(entry.target); }
       });
     }, { threshold: 0.5 });
-    counters.forEach(c => co.observe(c));
-  }
+    co.observe(c);
+  });
 
   /* ---- LIGHTBOX ---- */
-  const lightbox   = document.getElementById('lightbox');
-  const lbImg      = document.getElementById('lightbox-img');
-  const lbClose    = document.getElementById('lightbox-close');
-  const galleryItems = document.querySelectorAll('.gallery-item[data-src]');
-
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lightbox-img');
+  const lbClose  = document.getElementById('lightbox-close');
   if (lightbox && lbImg) {
-    galleryItems.forEach(item => {
+    document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
       item.addEventListener('click', () => {
         lbImg.src = item.dataset.src;
         lbImg.alt = item.dataset.caption || '';
@@ -110,30 +102,27 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
   }
 
-  /* ---- DONATE AMOUNT BUTTONS ---- */
-  const amountBtns = document.querySelectorAll('.amount-btn');
-  const customInput = document.getElementById('custom-amount');
-  amountBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      amountBtns.forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      if (customInput) {
-        customInput.value = btn.dataset.amount !== 'custom' ? btn.dataset.amount : '';
-        if (btn.dataset.amount !== 'custom') customInput.focus();
+  /* ---- WHATSAPP TOGGLE ---- */
+  const waToggle = document.getElementById('wa-toggle');
+  const waPopup  = document.getElementById('wa-popup');
+  const waCloseBtn = document.getElementById('wa-close-popup');
+  if (waToggle && waPopup) {
+    waToggle.addEventListener('click', () => {
+      waPopup.classList.toggle('open');
+    });
+    if (waCloseBtn) {
+      waCloseBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        waPopup.classList.remove('open');
+      });
+    }
+    document.addEventListener('click', e => {
+      const waFloat = document.querySelector('.wa-float');
+      if (waFloat && !waFloat.contains(e.target)) {
+        waPopup.classList.remove('open');
       }
     });
-  });
-
-  /* ---- SMOOTH SCROLL FOR HASH LINKS ---- */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+  }
 
   /* ---- CONTACT FORM ---- */
   const contactForm = document.getElementById('contact-form');
@@ -141,60 +130,44 @@ document.addEventListener('DOMContentLoaded', function () {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
-      btn.textContent = 'Sending...';
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
       btn.disabled = true;
       setTimeout(() => {
-        btn.textContent = 'Message Sent!';
+        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent Successfully!';
         btn.style.background = 'var(--green-700)';
         contactForm.reset();
         setTimeout(() => {
-          btn.textContent = 'Send Message';
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 3500);
-      }, 1400);
-    });
-  }
-
-  /* ---- DONATE FORM ---- */
-  const donateForm = document.getElementById('donate-form');
-  if (donateForm) {
-    donateForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const btn = this.querySelector('button[type="submit"]');
-      btn.textContent = 'Processing...';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Thank You for Your Generosity!';
-        btn.style.background = 'var(--green-700)';
-        setTimeout(() => {
-          btn.textContent = 'Donate Now';
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 4000);
-      }, 1800);
-    });
-  }
-
-  /* ---- VOLUNTEER FORM ---- */
-  const volunteerForm = document.getElementById('volunteer-form');
-  if (volunteerForm) {
-    volunteerForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const btn = this.querySelector('button[type="submit"]');
-      btn.textContent = 'Submitting...';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Application Received!';
-        btn.style.background = 'var(--green-700)';
-        volunteerForm.reset();
-        setTimeout(() => {
-          btn.textContent = 'Submit Application';
+          btn.innerHTML = original;
           btn.style.background = '';
           btn.disabled = false;
         }, 4000);
       }, 1600);
     });
   }
+
+  /* ---- FAQ ACCORDION ---- */
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', function () {
+      const answer  = this.nextElementSibling;
+      const isOpen  = this.classList.contains('open');
+      document.querySelectorAll('.faq-q').forEach(oq => {
+        oq.classList.remove('open');
+        oq.nextElementSibling.classList.remove('open');
+      });
+      if (!isOpen) {
+        this.classList.add('open');
+        answer.classList.add('open');
+      }
+    });
+  });
+
+  /* ---- SMOOTH SCROLL ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
 
 });

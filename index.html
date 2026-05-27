@@ -1,96 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIC Kanzinwa CYDC — Child &amp; Youth Development Centre</title>
-  <meta name="description" content="AIC Kanzinwa Child and Youth Development Centre (CYDC KE0759) — partnering with Compassion International to holistically release children and youth from poverty in Kitui County, Kenya." />
+  <meta name="description" content="AIC Kanzinwa Child and Youth Development Centre (KE0759) — Compassion International partner releasing children and youth from poverty in Kitui County, Kenya since 2009." />
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .hero { min-height: 95vh; }
-    .hero-bg { background-image: url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1800&q=80'); }
-    .about-split { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-    .about-img-wrap { position:relative; }
-    .about-img-wrap img { width:100%; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); }
-    .about-img-badge {
-      position:absolute; bottom:-20px; right:-20px;
-      background:var(--gold-500); color:var(--white);
-      border-radius:var(--radius-lg); padding:20px 24px;
-      text-align:center; box-shadow:var(--shadow-md);
-    }
-    .about-img-badge .num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; line-height:1; }
-    .about-img-badge .lbl { font-size:0.72rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; opacity:0.9; }
-    .values-list { display:flex; flex-direction:column; gap:12px; margin:24px 0; }
-    .value-item { display:flex; align-items:center; gap:12px; font-size:0.95rem; font-weight:600; color:var(--text); }
-    .value-item i { color:var(--green-700); font-size:0.85rem; width:20px; text-align:center; }
-    .news-section { background:var(--white); }
-    .news-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; gap:20px; }
-    .impact-section { background:linear-gradient(135deg,#0D2B1E 0%,#1B4332 100%); position:relative; overflow:hidden; }
-    .impact-section::before { content:''; position:absolute; top:-120px; right:-120px; width:400px; height:400px; background:radial-gradient(circle,rgba(181,134,42,0.18) 0%,transparent 70%); }
-    .impact-content { position:relative; z-index:1; }
-    .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-    .impact-text h2 { color:var(--white); margin-bottom:16px; }
-    .impact-text p { color:rgba(255,255,255,0.7); margin-bottom:28px; font-size:1.05rem; }
-    .impact-stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    .impact-stat-box { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius-lg); padding:28px 20px; text-align:center; }
-    .impact-stat-box .val { font-family:'Cormorant Garamond',serif; font-size:2.6rem; font-weight:700; color:var(--gold-300); line-height:1; }
-    .impact-stat-box .lbl { font-size:0.78rem; color:rgba(255,255,255,0.6); font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-top:8px; }
-    .partners-section { background:var(--cream); }
-    .partners-grid { display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap; }
-    .partner-item { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:0.88rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; }
-    .partner-item i { color:var(--green-600); font-size:1.4rem; }
-    @media(max-width:768px){
-      .about-split{grid-template-columns:1fr;gap:48px;}
-      .about-img-badge{bottom:-16px;right:16px;}
-      .impact-grid{grid-template-columns:1fr;gap:40px;}
-      .news-header{flex-direction:column;align-items:flex-start;}
-    }
+    .hero{min-height:95vh;}
+    .hero-bg{background-image:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1800&q=80');}
+    .about-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .about-img-wrap{position:relative;}
+    .about-img-wrap img{width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);}
+    .about-img-badge{position:absolute;bottom:-20px;right:-20px;background:var(--gold-500);color:var(--white);border-radius:var(--radius-lg);padding:20px 24px;text-align:center;box-shadow:var(--shadow-md);}
+    .about-img-badge .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;line-height:1;}
+    .about-img-badge .lbl{font-size:0.72rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;opacity:0.9;}
+    .values-list{display:flex;flex-direction:column;gap:12px;margin:24px 0;}
+    .value-item{display:flex;align-items:center;gap:12px;font-size:0.95rem;font-weight:600;color:var(--text);}
+    .value-item i{color:var(--green-700);font-size:0.85rem;width:20px;text-align:center;}
+    .news-section{background:var(--white);}
+    .news-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:20px;}
+    .impact-section{background:linear-gradient(135deg,#0D2B1E 0%,#1B4332 100%);position:relative;overflow:hidden;}
+    .impact-section::before{content:'';position:absolute;top:-120px;right:-120px;width:400px;height:400px;background:radial-gradient(circle,rgba(181,134,42,0.18) 0%,transparent 70%);}
+    .impact-content{position:relative;z-index:1;}
+    .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    .impact-text h2{color:var(--white);margin-bottom:16px;}
+    .impact-text p{color:rgba(255,255,255,0.7);margin-bottom:20px;font-size:1.05rem;}
+    .impact-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    .impact-stat-box{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;}
+    .impact-stat-box .val{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--gold-300);line-height:1;}
+    .impact-stat-box .lbl{font-size:0.78rem;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-top:8px;}
+    .partners-grid{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;}
+    .partner-item{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:0.85rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;}
+    .partner-item i{color:var(--green-600);font-size:1.3rem;}
+    @media(max-width:768px){.about-split{grid-template-columns:1fr;gap:48px;}.about-img-badge{bottom:-16px;right:16px;}.impact-grid{grid-template-columns:1fr;gap:40px;}.news-header{flex-direction:column;align-items:flex-start;}}
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="navbar">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
-        <div class="nav-brand-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
-        <div class="nav-brand-text">
-          <div class="org-name">AIC Kanzinwa CYDC</div>
-          <div class="org-sub">KE0759 — Kitui, Kenya</div>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="blog.html">News</a></li>
-        <li><a href="team.html">Our Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="nav-cta">
-        <a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate</a>
-      </div>
-      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
+  <div class="container"><div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo.jpg" alt="AIC Kanzinwa CYDC Logo" class="nav-logo-img" />
+      <div class="nav-brand-text"><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Kitui, Kenya</div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="team.html">Meet Our Team</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div></div>
 </nav>
-
 <div class="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="volunteer.html">Volunteer</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="blog.html">News &amp; Blog</a>
-  <a href="team.html">Meet Our Team</a>
-  <a href="contact.html">Contact Us</a>
-  <div class="mobile-cta">
-    <a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a>
-    <a href="volunteer.html" class="btn btn-outline">Volunteer</a>
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="gallery.html">Gallery</a>
+  <a href="blog.html">Blog</a><a href="team.html">Meet Our Team</a><a href="contact.html">Contact Us</a>
+  <div class="mobile-cta" style="margin-top:16px;">
+    <a href="contact.html" class="btn btn-primary" style="flex:1;justify-content:center;"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
   </div>
 </div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -100,30 +75,32 @@
       <h1>Releasing Children from<br><span>Poverty in Jesus' Name</span></h1>
       <p>AIC Kanzinwa Child and Youth Development Centre empowers children and youth in Kitui County, Kenya — providing holistic spiritual, economic, social, and physical development since 2009.</p>
       <div class="hero-actions">
-        <a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Support a Child</a>
-        <a href="about.html" class="btn btn-outline-white"><i class="fa-solid fa-circle-info"></i> Our Mission</a>
+        <a href="about.html" class="btn btn-gold"><i class="fa-solid fa-circle-info"></i> Our Mission</a>
+        <a href="contact.html" class="btn btn-outline-white"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
       </div>
     </div>
     <div class="hero-stats">
       <div><div class="hero-stat-value">371+</div><div class="hero-stat-label">Registered Beneficiaries</div></div>
-      <div><div class="hero-stat-value">2009</div><div class="hero-stat-label">Year Established</div></div>
-      <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Development Areas</div></div>
-      <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Active Locations</div></div>
+      <div><div class="hero-stat-value">1958</div><div class="hero-stat-label">Church Founded</div></div>
+      <div><div class="hero-stat-value">2009</div><div class="hero-stat-label">CDC Established</div></div>
+      <div><div class="hero-stat-value">90%</div><div class="hero-stat-label">Compassion Audit Score</div></div>
     </div>
   </div>
 </section>
 
+<!-- STATS BAR -->
 <div class="stats-bar">
   <div class="container">
     <div class="stats-bar-grid">
       <div class="stat-item"><div class="stat-value"><span class="counter" data-target="371" data-suffix="+">371+</span></div><div class="stat-label">Children &amp; Youth Supported</div></div>
-      <div class="stat-item"><div class="stat-value"><span class="counter" data-target="16" data-suffix="yrs">16yrs</span></div><div class="stat-label">Years of Service</div></div>
-      <div class="stat-item"><div class="stat-value"><span class="counter" data-target="5" data-suffix="km">5km</span></div><div class="stat-label">Community Radius Served</div></div>
-      <div class="stat-item"><div class="stat-value"><span class="counter" data-target="100" data-suffix="%">100%</span></div><div class="stat-label">Holistic Development Focus</div></div>
+      <div class="stat-item"><div class="stat-value"><span class="counter" data-target="271">271</span></div><div class="stat-label">Academy Pupils</div></div>
+      <div class="stat-item"><div class="stat-value"><span class="counter" data-target="36">36</span></div><div class="stat-label">Programme Alumni</div></div>
+      <div class="stat-item"><div class="stat-value"><span class="counter" data-target="9" data-suffix="x">9x</span></div><div class="stat-label">National Award Wins</div></div>
     </div>
   </div>
 </div>
 
+<!-- ABOUT SPLIT -->
 <section class="section">
   <div class="container">
     <div class="about-split">
@@ -135,8 +112,8 @@
         <span class="section-label">Who We Are</span>
         <h2 class="section-title">Holistic Development for Every Child</h2>
         <div class="divider"></div>
-        <p style="margin-bottom:16px;">Located in Kanzinwa village, Kitui County, Kenya, the Africa Inland Church Kanzinwa CDC has partnered with Compassion International since November 2008 to holistically release children and youth from poverty.</p>
-        <p style="margin-bottom:24px;">We serve registered beneficiaries across the Integrated Programme Module — covering survival, home-based, and sponsorship programmes — focusing on four core development pillars.</p>
+        <p style="margin-bottom:16px;">AIC Kanzinwa operates a three-in-one model — the Church, the KE0759 Child Development Centre supported by Compassion International, and the AIC Kanzinwa Academy providing quality primary education. Together, they form one unified institution serving the most vulnerable children in Mumoni Sub-county, Kitui County.</p>
+        <p style="margin-bottom:24px;">Since our CDC commenced operations in January 2009, we have grown from 200 to 371 registered beneficiaries, launched the AIC Maeni Satellite, established a boarding academy ranked in the top 10 in Kitui County, and won multiple national Compassion Partner of the Year Awards.</p>
         <div class="values-list">
           <div class="value-item"><i class="fa-solid fa-cross"></i> Spiritual Development — Commitment to the Lordship of Christ</div>
           <div class="value-item"><i class="fa-solid fa-briefcase"></i> Economic Development — Skills and self-reliance training</div>
@@ -149,25 +126,27 @@
   </div>
 </section>
 
+<!-- PROGRAMMES -->
 <section class="section bg-light">
   <div class="container">
     <div class="text-center mb-6 animate">
       <span class="section-label">What We Do</span>
       <h2 class="section-title">Our Programmes</h2>
       <div class="divider divider-center"></div>
-      <p class="section-lead" style="margin:0 auto;">Through the Integrated Programme Module, we deliver life-changing programmes tailored to each child's needs — from infancy through to young adulthood.</p>
+      <p class="section-lead" style="margin:0 auto;">Through the Integrated Programme Module, we deliver life-changing programmes from infancy through young adulthood — under three integrated pillars.</p>
     </div>
     <div class="grid-3">
-      <div class="program-card animate" data-delay="0"><div class="program-icon"><i class="fa-solid fa-baby"></i></div><h3>Survival Programme</h3><p>Nutrition, healthcare, and early childhood support for infants and toddlers in vulnerable households from birth to age 3.</p></div>
-      <div class="program-card animate" data-delay="100"><div class="program-icon"><i class="fa-solid fa-house-heart"></i></div><h3>Home-Based Care</h3><p>Caregiver support, household empowerment, and family-centred interventions to strengthen the home environment.</p></div>
+      <div class="program-card animate" data-delay="0"><div class="program-icon"><i class="fa-solid fa-baby"></i></div><h3>Survival Programme</h3><p>Nutrition, healthcare, and early childhood support for infants and toddlers from birth to age 3, including support for expectant mothers.</p></div>
+      <div class="program-card animate" data-delay="100"><div class="program-icon"><i class="fa-solid fa-house-heart"></i></div><h3>Home-Based Care</h3><p>Caregiver empowerment, household assessments, and family-centred interventions to strengthen the home environment.</p></div>
       <div class="program-card animate" data-delay="200"><div class="program-icon"><i class="fa-solid fa-graduation-cap"></i></div><h3>Sponsorship Programme</h3><p>Long-term one-to-one sponsorship covering education, healthcare, and spiritual nurture for children aged 3–22 years.</p></div>
-      <div class="program-card animate" data-delay="300"><div class="program-icon"><i class="fa-solid fa-stethoscope"></i></div><h3>Medical Outreach</h3><p>Periodic health clinics in partnership with Medical Missions Africa, providing free checkups, treatment, and health education.</p></div>
-      <div class="program-card animate" data-delay="400"><div class="program-icon"><i class="fa-solid fa-wrench"></i></div><h3>Vocational Training</h3><p>Skills training in plumbing, driving, and trade crafts — equipping youth with income-generating capabilities.</p></div>
-      <div class="program-card animate" data-delay="500"><div class="program-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Child Protection</h3><p>Community barazas, child neglect intervention, and anti-drug advocacy in partnership with government stakeholders.</p></div>
+      <div class="program-card animate" data-delay="300"><div class="program-icon"><i class="fa-solid fa-school"></i></div><h3>AIC Kanzinwa Academy</h3><p>A church-based primary school with 271 pupils and 101 boarders — ranked top 10 in Kitui County (2023) and best in Mumoni Sub-county.</p></div>
+      <div class="program-card animate" data-delay="400"><div class="program-icon"><i class="fa-solid fa-wrench"></i></div><h3>Vocational Training</h3><p>Skills training in plumbing, driving, welding, and trades — equipping youth with income-generating capabilities for lasting independence.</p></div>
+      <div class="program-card animate" data-delay="500"><div class="program-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Child Protection</h3><p>Community barazas, Linda Mtoto SHG, drug abuse intervention, and anti-neglect advocacy in partnership with NGAO and local government.</p></div>
     </div>
   </div>
 </section>
 
+<!-- IMPACT -->
 <section class="section impact-section">
   <div class="container impact-content">
     <div class="impact-grid">
@@ -175,20 +154,21 @@
         <span class="section-label">Our Impact</span>
         <h2>Transforming Lives, One Child at a Time</h2>
         <div class="divider"></div>
-        <p>From Wayua Karumba completing university to Daniel Muthoka earning his plumbing certification — each success story reflects the power of sustained, compassionate support.</p>
-        <p style="margin-top:12px;">Our satellite at AIC Maeni serves 30 additional beneficiaries, extending our reach to the most vulnerable families in the region.</p>
+        <p>From Wayua Karumba completing university to Daniel Muthoka and Titus Musyoki earning their plumbing and pipe fitting certifications at the Kenya Water Institute — our alumni are thriving across 29 counties in Kenya.</p>
+        <p>Our Compassion International audit score reached 90% in 2021, and we have won the Partner of the Year Award at both Regional and National level multiple times since 2015.</p>
         <a href="blog.html" class="btn btn-gold mt-4"><i class="fa-solid fa-book-open"></i> Read Success Stories</a>
       </div>
       <div class="impact-stats-grid animate" data-delay="150">
         <div class="impact-stat-box"><div class="val"><span class="counter" data-target="371" data-suffix="+">371+</span></div><div class="lbl">Beneficiaries</div></div>
-        <div class="impact-stat-box"><div class="val"><span class="counter" data-target="30">30</span></div><div class="lbl">Maeni Satellite</div></div>
-        <div class="impact-stat-box"><div class="val"><span class="counter" data-target="16" data-suffix="yr">16yr</span></div><div class="lbl">Partnership</div></div>
-        <div class="impact-stat-box"><div class="val"><span class="counter" data-target="22">22</span></div><div class="lbl">Max Support Age</div></div>
+        <div class="impact-stat-box"><div class="val"><span class="counter" data-target="36">36</span></div><div class="lbl">Alumni</div></div>
+        <div class="impact-stat-box"><div class="val"><span class="counter" data-target="90" data-suffix="%">90%</span></div><div class="lbl">Audit Rating</div></div>
+        <div class="impact-stat-box"><div class="val"><span class="counter" data-target="271">271</span></div><div class="lbl">Academy Pupils</div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- LATEST NEWS -->
 <section class="section news-section">
   <div class="container">
     <div class="news-header animate">
@@ -197,7 +177,7 @@
     </div>
     <div class="grid-3">
       <div class="card animate" data-delay="0">
-        <img class="card-img" src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600&q=80" alt="AIC Maeni Classroom Project" />
+        <img class="card-img" src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600&q=80" alt="AIC Maeni Classroom" />
         <div class="card-body">
           <span class="card-tag">Community</span>
           <h3 class="card-title">Building Hope Through Community Action: The AIC Maeni Classroom Project</h3>
@@ -211,17 +191,17 @@
         <div class="card-body">
           <span class="card-tag">Health</span>
           <h3 class="card-title">Partners with Medical Missions Africa for Transformative Medical Outreach</h3>
-          <p class="card-text">A two-day medical outreach brought free healthcare services to hundreds of community members at AIC Kanzinwa.</p>
+          <p class="card-text">A two-day medical outreach event brought free healthcare services to hundreds of community members.</p>
           <div class="card-meta"><span><i class="fa-regular fa-calendar"></i> September 21, 2025</span></div>
           <a href="blog.html" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
       <div class="card animate" data-delay="200">
-        <img class="card-img" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="Wayua Karumba Success Story" />
+        <img class="card-img" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="Wayua Karumba" />
         <div class="card-body">
           <span class="card-tag">Success Story</span>
-          <h3 class="card-title">Success Story — Wayua Karumba: From Sponsorship to University Graduate</h3>
-          <p class="card-text">Wayua's journey from a Compassion-sponsored child to proud alumna demonstrates the transformative power of sustained support.</p>
+          <h3 class="card-title">Wayua Karumba: From Sponsorship to University Graduate</h3>
+          <p class="card-text">Wayua's journey from a sponsored child to proud university alumna demonstrates the power of sustained support.</p>
           <div class="card-meta"><span><i class="fa-regular fa-calendar"></i> June 27, 2025</span></div>
           <a href="blog.html" class="card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -230,21 +210,13 @@
   </div>
 </section>
 
-<section class="section-sm">
-  <div class="container">
-    <div class="mission-strip animate">
-      <div class="mission-icon"><i class="fa-solid fa-book-bible"></i></div>
-      <div>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--dark);margin-bottom:10px;">"Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress."</p>
-        <span style="font-size:0.82rem;font-weight:700;color:var(--gold-700);letter-spacing:0.06em;text-transform:uppercase;">James 1:27 — The Foundation of Our Work</span>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- SCRIPTURE STRIP -->
+<section class="section-sm"><div class="container"><div class="mission-strip animate"><div class="mission-icon"><i class="fa-solid fa-book-bible"></i></div><div><p style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--dark);margin-bottom:10px;">"Religion that God our Father accepts as pure and faultless is this: to look after orphans and widows in their distress."</p><span style="font-size:0.82rem;font-weight:700;color:var(--gold-700);letter-spacing:0.06em;text-transform:uppercase;">James 1:27 — The Foundation of Our Work</span></div></div></div></section>
 
-<section class="section-sm partners-section">
+<!-- PARTNERS -->
+<section class="section-sm bg-light">
   <div class="container text-center animate">
-    <span class="section-label" style="margin-bottom:32px;display:block;">Our Partners &amp; Affiliations</span>
+    <span class="section-label" style="display:block;margin-bottom:28px;">Our Partners &amp; Affiliations</span>
     <div class="partners-grid">
       <div class="partner-item"><i class="fa-solid fa-handshake"></i> Compassion International</div>
       <div class="partner-item"><i class="fa-solid fa-cross"></i> Africa Inland Church</div>
@@ -252,77 +224,88 @@
       <div class="partner-item"><i class="fa-solid fa-building-columns"></i> Kenya Water Institute</div>
       <div class="partner-item"><i class="fa-solid fa-road"></i> AAKenya Driving School</div>
       <div class="partner-item"><i class="fa-solid fa-shield-halved"></i> NGAO</div>
+      <div class="partner-item"><i class="fa-solid fa-university"></i> Strathmore University</div>
+      <div class="partner-item"><i class="fa-solid fa-piggy-bank"></i> Equity Bank</div>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <span class="section-label">Make a Difference Today</span>
-    <h2>Every Contribution Changes a Life</h2>
-    <p>Join hundreds of supporters who believe every child deserves the chance to thrive.</p>
+    <span class="section-label">Connect With Us</span>
+    <h2>Be Part of Something Meaningful</h2>
+    <p>Whether you want to learn more about our work, partner with us, or simply reach out — we would love to hear from you.</p>
     <div class="cta-actions">
-      <a href="donate.html" class="btn btn-gold"><i class="fa-solid fa-heart"></i> Donate Now</a>
-      <a href="volunteer.html" class="btn btn-outline-white"><i class="fa-solid fa-hands-helping"></i> Volunteer With Us</a>
-      <a href="contact.html" class="btn btn-outline-white"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
+      <a href="contact.html" class="btn btn-gold"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+      <a href="blog.html" class="btn btn-outline-white"><i class="fa-solid fa-newspaper"></i> Read Our Stories</a>
+      <a href="https://compassion.com" target="_blank" rel="noopener" class="btn btn-outline-white"><i class="fa-solid fa-handshake"></i> Support via Compassion</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="icon"><i class="fa-solid fa-hands-holding-child"></i></div>
-          <div><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Est. 2009</div></div>
-        </div>
-        <p>Releasing children and youth from poverty in Jesus' Name through holistic development in Kanzinwa village, Kitui County, Kenya — in partnership with Compassion International since 2008.</p>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="mailto:ke759aickanzinwacdc@gmail.com" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://wa.me/" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h5>Quick Links</h5>
-        <ul class="footer-links">
-          <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
-          <li><a href="volunteer.html"><i class="fa-solid fa-chevron-right"></i> Volunteer</a></li>
-          <li><a href="donate.html"><i class="fa-solid fa-chevron-right"></i> Donate</a></li>
-          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
-          <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> News &amp; Blog</a></li>
-          <li><a href="team.html"><i class="fa-solid fa-chevron-right"></i> Our Team</a></li>
-          <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Our Programmes</h5>
-        <ul class="footer-links">
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Survival Programme</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Home-Based Care</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Sponsorship</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Medical Outreach</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Vocational Training</a></li>
-          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Child Protection</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Contact Us</h5>
-        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Kanzinwa Village, Mumoni Sub-county, Kitui County, Kenya</span></div>
-        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:ke759aickanzinwacdc@gmail.com" style="color:rgba(255,255,255,0.6);">ke759aickanzinwacdc@gmail.com</a></div>
-        <div class="footer-contact-item"><i class="fa-solid fa-handshake"></i><span>Compassion International Partner — KE0759</span></div>
-        <a href="donate.html" class="btn btn-gold mt-3" style="font-size:0.85rem;padding:11px 20px;"><i class="fa-solid fa-heart"></i> Donate Now</a>
+<!-- FOOTER -->
+<footer><div class="container">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="images/logo.jpg" alt="AIC Kanzinwa CYDC" class="footer-logo-img" /><div><div class="org-name">AIC Kanzinwa CYDC</div><div class="org-sub">KE0759 — Est. 2009</div></div></div>
+      <p>Releasing children and youth from poverty in Jesus' Name through holistic development in Kanzinwa village, Kitui County, Kenya — Compassion International Partner since 2008.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="mailto:info@aickanzinwacdc.org" class="footer-social-link"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://wa.me/254736363349" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener" class="footer-social-link"><i class="fa-brands fa-youtube"></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; 2025 AIC Kanzinwa Child &amp; Youth Development Centre. All rights reserved.</span>
-      <span>Compassion International Partner — <a href="https://compassion.com" target="_blank" rel="noopener">KE0759</a></span>
+    <div class="footer-col"><h5>Quick Links</h5><ul class="footer-links">
+      <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+      <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+      <li><a href="blog.html"><i class="fa-solid fa-chevron-right"></i> Blog</a></li>
+      <li><a href="team.html"><i class="fa-solid fa-chevron-right"></i> Meet Our Team</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Our Programmes</h5><ul class="footer-links">
+      <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Survival Programme</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Home-Based Care</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Sponsorship</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> AIC Kanzinwa Academy</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Vocational Training</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> Child Protection</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Contact Us</h5>
+      <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>Kanzinwa Village, Mbarani Sub-location, Mumoni Sub-county, Kitui County, Kenya</span></div>
+      <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:+254736363349" style="color:rgba(255,255,255,0.6);">+254 736 363 349</a></div>
+      <div class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/254736363349" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);">WhatsApp: +254 736 363 349</a></div>
+      <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@aickanzinwacdc.org" style="color:rgba(255,255,255,0.6);">info@aickanzinwacdc.org</a></div>
     </div>
   </div>
-</footer>
+  <div class="footer-bottom">
+    <span>&copy; 2026 AIC Kanzinwa Child &amp; Youth Development Centre. All rights reserved.</span>
+    <span>Compassion International Partner — <a href="https://compassion.com" target="_blank" rel="noopener">KE0759</a></span>
+  </div>
+</div></footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<div class="wa-float">
+  <div class="wa-popup" id="wa-popup">
+    <button class="wa-close" id="wa-close-popup"><i class="fa-solid fa-xmark"></i></button>
+    <div class="wa-popup-header">
+      <img src="images/logo.jpg" alt="AIC Kanzinwa" class="wa-popup-avatar" />
+      <div><div class="wa-popup-name">AIC Kanzinwa CYDC</div><div class="wa-popup-status"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Typically replies within a day</div></div>
+    </div>
+    <p>Hi there! Have a question about our programmes, or would like to support us? Reach out — we'd love to connect with you.</p>
+    <div class="wa-popup-actions">
+      <a href="https://wa.me/254736363349?text=Hello%20AIC%20Kanzinwa%20CYDC%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20programmes." target="_blank" rel="noopener" class="wa-action-btn chat"><i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i> Chat on WhatsApp</a>
+      <a href="tel:+254736363349" class="wa-action-btn call"><i class="fa-solid fa-phone"></i> Call +254 736 363 349</a>
+    </div>
+  </div>
+  <button class="wa-main-btn" id="wa-toggle" aria-label="WhatsApp">
+    <div class="wa-pulse"></div>
+    <i class="fa-brands fa-whatsapp" style="position:relative;z-index:1;font-size:1.7rem;"></i>
+  </button>
+</div>
+
 <script src="js/main.js"></script>
 </body>
 </html>
