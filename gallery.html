@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery — AIC Kanzinwa CYDC</title>
-  <meta name="description" content="Browse photos from AIC Kanzinwa CYDC programmes, events, and milestones across Kanzinwa village and AIC Maeni Satellite." />
+  <meta name="description" content="Real photos from AIC Kanzinwa CYDC programmes, events, and community milestones." />
   <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -11,17 +11,36 @@
     .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;}
     .filter-btn{padding:9px 20px;border:2px solid var(--border);border-radius:100px;font-size:0.83rem;font-weight:700;cursor:pointer;transition:all var(--transition);background:var(--white);color:var(--text);}
     .filter-btn.active,.filter-btn:hover{background:var(--green-800);border-color:var(--green-800);color:var(--white);}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-    .gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;aspect-ratio:4/3;}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;display:block;}
+    /* Masonry-style gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;background:var(--green-100);}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
     .gallery-item:hover img{transform:scale(1.06);}
-    .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,43,30,0.85) 0%,transparent 55%);opacity:0;transition:opacity var(--transition);display:flex;align-items:flex-end;padding:18px;}
+    /* Vary row heights for visual interest */
+    .gallery-item.tall{aspect-ratio:3/4;}
+    .gallery-item.wide{aspect-ratio:4/3;}
+    .gallery-item.square{aspect-ratio:1/1;}
+    .gallery-item.landscape{aspect-ratio:16/9;}
+    .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,43,30,0.88) 0%,transparent 50%);opacity:0;transition:opacity var(--transition);display:flex;align-items:flex-end;padding:18px;}
     .gallery-item:hover .gallery-overlay{opacity:1;}
-    .gallery-caption{color:var(--white);font-size:0.84rem;font-weight:600;line-height:1.3;}
-    .gallery-zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--white);font-size:1.5rem;opacity:0;transition:opacity var(--transition);}
+    .gallery-caption-wrap{color:var(--white);}
+    .gallery-caption{font-size:0.86rem;font-weight:700;line-height:1.3;}
+    .gallery-subcaption{font-size:0.74rem;color:rgba(255,255,255,0.75);margin-top:3px;}
+    .gallery-zoom{position:absolute;top:12px;right:12px;width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.9rem;opacity:0;transition:opacity var(--transition);backdrop-filter:blur(4px);}
     .gallery-item:hover .gallery-zoom{opacity:1;}
-    @media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}
+    /* Category badge on photo */
+    .gallery-badge{position:absolute;top:12px;left:12px;background:var(--green-800);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;}
+    /* Lightbox */
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.94);z-index:9999;flex-direction:column;align-items:center;justify-content:center;padding:20px;}
+    .lightbox.open{display:flex;}
+    .lightbox-img-wrap{position:relative;max-width:90vw;max-height:80vh;}
+    .lightbox-img-wrap img{max-width:90vw;max-height:80vh;border-radius:var(--radius);display:block;object-fit:contain;}
+    .lightbox-caption{color:var(--white);text-align:center;margin-top:16px;font-size:0.9rem;font-weight:600;}
+    .lightbox-subcap{color:rgba(255,255,255,0.6);font-size:0.78rem;margin-top:4px;}
+    .lightbox-close{position:fixed;top:20px;right:24px;color:var(--white);font-size:1.8rem;cursor:pointer;background:none;border:none;transition:color var(--transition);z-index:10000;}
+    .lightbox-close:hover{color:var(--gold-300);}
+    @media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);}.gallery-item.landscape{grid-column:span 2;aspect-ratio:16/7;}}
+    @media(max-width:420px){.gallery-grid{grid-template-columns:1fr;}.gallery-item.landscape{grid-column:auto;}}
   </style>
 </head>
 <body>
@@ -35,71 +54,349 @@
   </ul>
   <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </div></div></nav>
-<div class="mobile-menu">
-  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="gallery.html">Gallery</a>
-  <a href="blog.html">Blog</a><a href="team.html">Meet Our Team</a><a href="contact.html">Contact Us</a>
-  <div class="mobile-cta" style="margin-top:16px;"><a href="contact.html" class="btn btn-primary" style="flex:1;justify-content:center;"><i class="fa-solid fa-envelope"></i> Get in Touch</a></div>
-</div>
+<div class="mobile-menu"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="team.html">Meet Our Team</a><a href="contact.html">Contact Us</a><div class="mobile-cta" style="margin-top:16px;"><a href="contact.html" class="btn btn-primary" style="flex:1;justify-content:center;"><i class="fa-solid fa-envelope"></i> Get in Touch</a></div></div>
 
-<div class="page-hero"><div class="container page-hero-content">
-  <span class="section-label">Our Moments</span><h1>Photo Gallery</h1>
-  <div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Gallery</span></div>
-</div></div>
+<div class="page-hero"><div class="container page-hero-content"><span class="section-label">Our Moments</span><h1>Photo Gallery</h1><div class="breadcrumb"><a href="index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Gallery</span></div></div></div>
 
 <section class="section">
   <div class="container">
     <div class="text-center mb-6 animate">
-      <span class="section-label">Stories in Pictures</span>
+      <span class="section-label">Real People, Real Stories</span>
       <h2 class="section-title">Moments of Impact</h2>
       <div class="divider divider-center"></div>
-      <p class="section-lead" style="margin:0 auto;">Glimpses of the programmes, events, and milestones that define our work across Kanzinwa village and AIC Maeni Satellite.</p>
+      <p class="section-lead" style="margin:0 auto;">These are genuine photographs from our programmes, partnerships, and community activities across AIC Kanzinwa CDC and AIC Maeni Satellite.</p>
     </div>
 
     <div class="filter-bar animate">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Education</button>
+      <button class="filter-btn active">All Photos</button>
+      <button class="filter-btn">Success Stories</button>
       <button class="filter-btn">Health</button>
       <button class="filter-btn">Community</button>
-      <button class="filter-btn">Academy</button>
-      <button class="filter-btn">Sports</button>
-      <button class="filter-btn">Environment</button>
+      <button class="filter-btn">Skills</button>
+      <button class="filter-btn">Partnerships</button>
     </div>
 
     <div class="gallery-grid">
-      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80"><img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=700&q=75" alt="Children in Education Programme" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Children in Education Programme</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
 
-      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=1200&q=80"><img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=700&q=75" alt="AIC Maeni Classroom Construction" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">AIC Maeni Classroom Construction</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- MEMA Community Gathering — CDC Building visible — landscape -->
+      <div class="gallery-item landscape animate" data-delay="0"
+           data-src="images/gallery/mema-community-gathering.jpg"
+           data-caption="Community Gathering at AIC Kanzinwa CDC"
+           data-sub="Medical Outreach Baraza — September 2025">
+        <img src="images/gallery/mema-community-gathering.jpg" alt="Community gathering at AIC Kanzinwa CDC building" loading="lazy" />
+        <div class="gallery-badge">Community</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Community Gathering at AIC Kanzinwa CDC</div>
+            <div class="gallery-subcaption">Medical Outreach Baraza — September 2025</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=1200&q=80"><img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=700&q=75" alt="Community Gathering and Baraza" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Community Gathering &amp; Baraza</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- Maeni Classroom Building — wide -->
+      <div class="gallery-item wide animate" data-delay="60"
+           data-src="images/gallery/maeni-classroom-building.jpg"
+           data-caption="AIC Maeni Classroom — Community Built"
+           data-sub="New dedicated classroom with water storage tanks — 2025">
+        <img src="images/gallery/maeni-classroom-building.jpg" alt="Maeni classroom building with water tanks" loading="lazy" />
+        <div class="gallery-badge">Community</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">AIC Maeni Classroom — Community Built</div>
+            <div class="gallery-subcaption">Dedicated classroom with water storage — 2025</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=75" alt="Medical Outreach with MEMA" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Medical Outreach with MEMA</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- Maeni Satellite Class (children outdoors) — wide -->
+      <div class="gallery-item wide animate" data-delay="120"
+           data-src="images/gallery/maeni-satellite-class.jpg"
+           data-caption="Children Learning at AIC Maeni Satellite"
+           data-sub="Saturday programming session outdoors — Maeni, 2024">
+        <img src="images/gallery/maeni-satellite-class.jpg" alt="Children at AIC Maeni Satellite outdoor classroom" loading="lazy" />
+        <div class="gallery-badge">Education</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Children Learning at AIC Maeni Satellite</div>
+            <div class="gallery-subcaption">Saturday programming session outdoors — 2024</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=75" alt="Children at the Development Centre" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Children at the Development Centre</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- MEMA Team at CDC -->
+      <div class="gallery-item wide animate" data-delay="0"
+           data-src="images/gallery/mema-team-cdc.jpg"
+           data-caption="MeMA Medical Team at AIC Kanzinwa CDC"
+           data-sub="Doctors and church leadership — September 2025">
+        <img src="images/gallery/mema-team-cdc.jpg" alt="MEMA doctors and church leadership at CDC" loading="lazy" />
+        <div class="gallery-badge">Health</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">MeMA Medical Team at AIC Kanzinwa CDC</div>
+            <div class="gallery-subcaption">Doctors and church leadership — September 2025</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?w=1200&q=80"><img src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?w=700&q=75" alt="Youth Learning Session" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Youth Learning Session</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- MEMA Medics Team -->
+      <div class="gallery-item wide animate" data-delay="60"
+           data-src="images/gallery/mema-medics-team.jpg"
+           data-caption="MeMA Medics Group Photo"
+           data-sub="Medical staff at the two-day outreach — September 2025">
+        <img src="images/gallery/mema-medics-team.jpg" alt="MeMA medics group photo" loading="lazy" />
+        <div class="gallery-badge">Health</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">MeMA Medics Group Photo</div>
+            <div class="gallery-subcaption">Medical staff at the two-day outreach — 2025</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=700&q=75" alt="Graduation Celebration" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Graduation &amp; Achievements</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- Community being treated -->
+      <div class="gallery-item wide animate" data-delay="120"
+           data-src="images/gallery/mema-treatment.jpg"
+           data-caption="Community Members Receiving Medical Treatment"
+           data-sub="Free healthcare during the MeMA outreach — September 2025">
+        <img src="images/gallery/mema-treatment.jpg" alt="Community members being treated at medical outreach" loading="lazy" />
+        <div class="gallery-badge">Health</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Community Members Receiving Medical Treatment</div>
+            <div class="gallery-subcaption">Free healthcare — MeMA Outreach 2025</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&q=80"><img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700&q=75" alt="Volunteer Team in Action" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Volunteer Team in Action</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- MEMA Screening -->
+      <div class="gallery-item wide animate" data-delay="0"
+           data-src="images/gallery/mema-screening.jpg"
+           data-caption="Health Screening for Programme Participants"
+           data-sub="MeMA health screening session — September 2025">
+        <img src="images/gallery/mema-screening.jpg" alt="MeMA screening programme participants" loading="lazy" />
+        <div class="gallery-badge">Health</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Health Screening for Programme Participants</div>
+            <div class="gallery-subcaption">MeMA screening session — September 2025</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=700&q=75" alt="Environmental Tree Planting" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Environmental Tree Planting Initiative</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- Daniel Muthoka pipe -->
+      <div class="gallery-item tall animate" data-delay="60"
+           data-src="images/gallery/daniel-muthoka-pipe.jpg"
+           data-caption="Daniel Muthoka — Pipe Fitting"
+           data-sub="KEWI-trained plumber at work — KE07590076">
+        <img src="images/gallery/daniel-muthoka-pipe.jpg" alt="Daniel Muthoka pipe fitting at wall" loading="lazy" />
+        <div class="gallery-badge">Success Story</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Daniel Muthoka — Pipe Fitting</div>
+            <div class="gallery-subcaption">KEWI-trained plumber — KE07590076</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="0" data-src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?w=1200&q=80"><img src="https://images.unsplash.com/photo-1526976668912-1a811878dd37?w=700&q=75" alt="Sports Day and Recreation" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Sports Day &amp; Recreation Activities</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- Daniel Muthoka welding -->
+      <div class="gallery-item square animate" data-delay="120"
+           data-src="images/gallery/daniel-muthoka-welding.jpg"
+           data-caption="Daniel Muthoka — Welding Skills"
+           data-sub="Applying his KEWI training on the job">
+        <img src="images/gallery/daniel-muthoka-welding.jpg" alt="Daniel Muthoka welding" loading="lazy" />
+        <div class="gallery-badge">Skills</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Daniel Muthoka — Welding Skills</div>
+            <div class="gallery-subcaption">Applying KEWI training on the job</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="60" data-src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&q=80"><img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=700&q=75" alt="Child Protection Training" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Child Protection Training &amp; Baraza</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <!-- Daniel Muthoka valve -->
+      <div class="gallery-item square animate" data-delay="0"
+           data-src="images/gallery/daniel-muthoka-valve.jpg"
+           data-caption="Daniel Muthoka — Valve Installation"
+           data-sub="Water systems specialist — KE07590076">
+        <img src="images/gallery/daniel-muthoka-valve.jpg" alt="Daniel Muthoka installing water valve" loading="lazy" />
+        <div class="gallery-badge">Skills</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Daniel Muthoka — Valve Installation</div>
+            <div class="gallery-subcaption">Water systems specialist</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
 
-      <div class="gallery-item animate" data-delay="120" data-src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=75" alt="Literacy and Reading Programme" loading="lazy" /><div class="gallery-overlay"><div class="gallery-caption">Literacy &amp; Reading Programme</div></div><div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-    </div>
+      <!-- Wayua Karumba 2 (crane) -->
+      <div class="gallery-item tall animate" data-delay="60"
+           data-src="images/gallery/wayua-karumba-2.jpg"
+           data-caption="Wayua Karumba — Operating Heavy Equipment"
+           data-sub="Alumni success — from sponsorship to career — KE075900135">
+        <img src="images/gallery/wayua-karumba-2.jpg" alt="Wayua Karumba operating heavy machinery" loading="lazy" />
+        <div class="gallery-badge">Success Story</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Wayua Karumba — Operating Heavy Equipment</div>
+            <div class="gallery-subcaption">From sponsorship to career — KE075900135</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Wayua Karumba 4 (pump) -->
+      <div class="gallery-item tall animate" data-delay="120"
+           data-src="images/gallery/wayua-karumba-4.jpg"
+           data-caption="Wayua Karumba — Water Pump Installation"
+           data-sub="Technical career success — Grundfos systems">
+        <img src="images/gallery/wayua-karumba-4.jpg" alt="Wayua Karumba installing Grundfos water pump" loading="lazy" />
+        <div class="gallery-badge">Success Story</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Wayua Karumba — Water Pump Installation</div>
+            <div class="gallery-subcaption">Technical career — Grundfos systems</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Wayua 1 (vehicle) -->
+      <div class="gallery-item wide animate" data-delay="0"
+           data-src="images/gallery/wayua-karumba-1.jpg"
+           data-caption="Wayua Karumba — Heavy Vehicle Operation"
+           data-sub="Alumni living out her potential — KE075900135">
+        <img src="images/gallery/wayua-karumba-1.jpg" alt="Wayua Karumba near heavy vehicle" loading="lazy" />
+        <div class="gallery-badge">Success Story</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Wayua Karumba — Heavy Vehicle Operation</div>
+            <div class="gallery-subcaption">Alumni living out her potential</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Wayua 3 (entrance) -->
+      <div class="gallery-item tall animate" data-delay="60"
+           data-src="images/gallery/wayua-karumba-3.jpg"
+           data-caption="Wayua Karumba — On the Job"
+           data-sub="Professional growth through Compassion support">
+        <img src="images/gallery/wayua-karumba-3.jpg" alt="Wayua Karumba on a technical assignment" loading="lazy" />
+        <div class="gallery-badge">Success Story</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Wayua Karumba — On the Job</div>
+            <div class="gallery-subcaption">Professional growth through Compassion support</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Titus Musyoki graduation -->
+      <div class="gallery-item tall animate" data-delay="120"
+           data-src="images/gallery/titus-musyoki-graduation.jpg"
+           data-caption="Titus Musyoki — Graduation Day"
+           data-sub="KEWI Plumbing &amp; Pipe Fitting graduate — KE07590066">
+        <img src="images/gallery/titus-musyoki-graduation.jpg" alt="Titus Musyoki on graduation day in gown" loading="lazy" />
+        <div class="gallery-badge">Success Story</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Titus Musyoki — Graduation Day</div>
+            <div class="gallery-subcaption">KEWI graduate — KE07590066</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Ball making -->
+      <div class="gallery-item wide animate" data-delay="0"
+           data-src="images/gallery/ball-making-skills.jpg"
+           data-caption="Ball Making Skills Training"
+           data-sub="Vocational skills for income generation — November 2024">
+        <img src="images/gallery/ball-making-skills.jpg" alt="Soccer balls made by programme participants" loading="lazy" />
+        <div class="gallery-badge">Skills</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Ball Making Skills Training</div>
+            <div class="gallery-subcaption">Vocational skills for income generation — 2024</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- AAKenya MoU Group -->
+      <div class="gallery-item wide animate" data-delay="60"
+           data-src="images/gallery/aakenya-mou-group.jpg"
+           data-caption="AAKenya MoU Group Signing Photo"
+           data-sub="Partnership signed 18 March 2024 — Kanzinwa CDC &amp; AAKenya">
+        <img src="images/gallery/aakenya-mou-group.jpg" alt="Group MoU photo with AAKenya Driving School" loading="lazy" />
+        <div class="gallery-badge">Partnerships</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">AAKenya MoU Group Signing Photo</div>
+            <div class="gallery-subcaption">Partnership signed — March 2024</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- AAKenya MoU signing -->
+      <div class="gallery-item tall animate" data-delay="120"
+           data-src="images/gallery/aakenya-mou-signing.jpg"
+           data-caption="AAKenya MoU — Document Signing"
+           data-sub="Three leaders formalise the driving training partnership">
+        <img src="images/gallery/aakenya-mou-signing.jpg" alt="AAKenya MoU signing — three leaders with document" loading="lazy" />
+        <div class="gallery-badge">Partnerships</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">AAKenya MoU — Document Signing</div>
+            <div class="gallery-subcaption">Formalising the driving training partnership</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Award Ceremony -->
+      <div class="gallery-item wide animate" data-delay="0"
+           data-src="images/gallery/award-ceremony.jpg"
+           data-caption="Award Ceremony — Programme Achievements"
+           data-sub="Recognising excellence and community milestones">
+        <img src="images/gallery/award-ceremony.jpg" alt="Award ceremony celebrating programme achievements" loading="lazy" />
+        <div class="gallery-badge">Achievements</div>
+        <div class="gallery-overlay">
+          <div class="gallery-caption-wrap">
+            <div class="gallery-caption">Award Ceremony — Programme Achievements</div>
+            <div class="gallery-subcaption">Recognising excellence and milestones</div>
+          </div>
+        </div>
+        <div class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+    </div><!-- /gallery-grid -->
   </div>
 </section>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
-  <img id="lightbox-img" src="" alt="" />
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+  <div class="lightbox-subcap" id="lightbox-subcap"></div>
 </div>
 
-<section class="cta-section"><div class="container"><span class="section-label">Be Part of Our Story</span><h2>Help Us Create More Moments Like These</h2><p>Your support enables us to create lasting memories and transformative outcomes for every child we serve.</p><div class="cta-actions"><a href="contact.html" class="btn btn-gold"><i class="fa-solid fa-envelope"></i> Contact Us</a><a href="blog.html" class="btn btn-outline-white"><i class="fa-solid fa-newspaper"></i> Read Our Blog</a></div></div></section>
+<section class="cta-section"><div class="container"><span class="section-label">These Stories Continue</span><h2>Help Us Create More Moments Like These</h2><p>Your support enables more children and youth to be part of transformation stories like these.</p><div class="cta-actions"><a href="blog.html" class="btn btn-gold"><i class="fa-solid fa-newspaper"></i> Read the Blog</a><a href="contact.html" class="btn btn-outline-white"><i class="fa-solid fa-envelope"></i> Contact Us</a></div></div></section>
 
 <footer><div class="container">
   <div class="footer-top">
@@ -112,6 +409,37 @@
 </div></footer>
 
 <div class="wa-float"><div class="wa-popup" id="wa-popup"><button class="wa-close" id="wa-close-popup"><i class="fa-solid fa-xmark"></i></button><div class="wa-popup-header"><img src="images/logo.jpg" alt="AIC Kanzinwa" class="wa-popup-avatar" /><div><div class="wa-popup-name">AIC Kanzinwa CYDC</div><div class="wa-popup-status"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Typically replies within a day</div></div></div><p>Have a question? Reach out on WhatsApp or give us a call.</p><div class="wa-popup-actions"><a href="https://wa.me/254736363349?text=Hello%20AIC%20Kanzinwa%20CYDC!" target="_blank" rel="noopener" class="wa-action-btn chat"><i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i> Chat on WhatsApp</a><a href="tel:+254736363349" class="wa-action-btn call"><i class="fa-solid fa-phone"></i> Call +254 736 363 349</a></div></div><button class="wa-main-btn" id="wa-toggle" aria-label="WhatsApp"><div class="wa-pulse"></div><i class="fa-brands fa-whatsapp" style="position:relative;z-index:1;font-size:1.7rem;"></i></button></div>
+
 <script src="js/main.js"></script>
+<script>
+// Enhanced lightbox with caption support
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox   = document.getElementById('lightbox');
+  const lbImg      = document.getElementById('lightbox-img');
+  const lbCap      = document.getElementById('lightbox-caption');
+  const lbSub      = document.getElementById('lightbox-subcap');
+  const lbClose    = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
+    item.addEventListener('click', () => {
+      lbImg.src        = item.dataset.src;
+      lbImg.alt        = item.dataset.caption || '';
+      lbCap.textContent = item.dataset.caption || '';
+      lbSub.textContent = item.dataset.sub || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLB() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  if (lbClose) lbClose.addEventListener('click', closeLB);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLB(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+});
+</script>
 </body>
 </html>
