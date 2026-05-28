@@ -1,0 +1,16 @@
+<svg viewBox="0 0 180 80" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="80" rx="8" fill="#fff"/>
+  <!-- Shield shape -->
+  <path d="M24 12 L56 12 L56 48 Q40 65 24 48 Z" fill="#7B1D1D" opacity="0.12"/>
+  <path d="M24 12 L56 12 L56 48 Q40 65 24 48 Z" stroke="#7B1D1D" stroke-width="2.5" fill="none"/>
+  <!-- Cross on shield -->
+  <line x1="40" y1="16" x2="40" y2="52" stroke="#7B1D1D" stroke-width="3" stroke-linecap="round"/>
+  <line x1="28" y1="30" x2="52" y2="30" stroke="#7B1D1D" stroke-width="3" stroke-linecap="round"/>
+  <!-- Stars in quarters -->
+  <text x="32" y="27" font-size="7" fill="#7B1D1D">★</text>
+  <text x="44" y="27" font-size="7" fill="#7B1D1D">★</text>
+  <!-- Text -->
+  <text x="68" y="27" font-family="Arial,sans-serif" font-weight="700" font-size="12" fill="#7B1D1D">Strathmore</text>
+  <text x="68" y="43" font-family="Arial,sans-serif" font-weight="700" font-size="12" fill="#7B1D1D">University</text>
+  <text x="68" y="58" font-family="Arial,sans-serif" font-size="9" fill="#9E2A2A" font-style="italic">Nairobi, Kenya</text>
+</svg>

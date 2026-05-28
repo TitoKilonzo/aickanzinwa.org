@@ -1,0 +1,12 @@
+<svg viewBox="0 0 180 80" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="80" rx="8" fill="#fff"/>
+  <!-- Shield -->
+  <path d="M35 15 L55 15 L55 50 Q45 62 35 50 Z" fill="#1B5E20" opacity="0.15"/>
+  <path d="M35 15 L55 15 L55 50 Q45 62 35 50 Z" stroke="#1B5E20" stroke-width="2" fill="none"/>
+  <!-- Cross inside shield -->
+  <line x1="45" y1="20" x2="45" y2="55" stroke="#1B5E20" stroke-width="4" stroke-linecap="round"/>
+  <line x1="37" y1="33" x2="53" y2="33" stroke="#1B5E20" stroke-width="4" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="68" y="29" font-family="Arial,sans-serif" font-weight="700" font-size="12" fill="#1B5E20">Africa Inland</text>
+  <text x="68" y="46" font-family="Arial,sans-serif" font-weight="700" font-size="12" fill="#1B5E20">Church Kenya</text>
+</svg>
